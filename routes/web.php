@@ -4,10 +4,12 @@ use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BendaharaController;
 use App\Http\Controllers\SuratController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\DivisiController;
+use App\Http\Controllers\SuratDivController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +37,17 @@ Route::post('KelolaDivisi/hapus/{id}', [DivisiController::class, 'hapus'])->name
 
 Route::get('requestSurat/index', [RequestController::class, 'index'])-> name('RequestSurat');
 Route::get('requestSurat/create', [RequestController::class, 'index'])-> name('requestCreate');
+
+
+Route::get('/DashboardBendahara', [DashboardController::class, 'dashboardbend'])->name('dashboard');
+Route::get('DanaMasuk/danamasuk', [BendaharaController::class, 'danamasuk'])-> name('DanaMasuk');
+Route::get('LaporanDana/laporandana', [BendaharaController::class, 'laporandana'])-> name('LaporanDana');
+
+Route::get('/DashboardDivisi', [DashboardController::class, 'dashboarddiv'])->name('dashboard');
+Route::get('ReqSurat/reqsurat', [SuratDivController::class, 'reqsurat'])-> name('ReqSurat');
+Route::get('AjuanDana/ajuandana', [SuratDivController::class, 'ajuandana'])-> name('AjuanDana');
+Route::get('KirimSurat/kirimsurat', [SuratDivController::class, 'kirimsurat'])-> name('KirimSurat');
+Route::get('ArsipSurat/arsipsurat', [SuratDivController::class, 'arsipsurat'])-> name('ArsipSurat');
 
 // Route::get('kelolaDivisi/index', [DivisiController::class, 'index'])-> name('kelolaDivisi');
 

@@ -53,39 +53,24 @@
                     </div>
                 </li>
 
-                <!-- -------- Dropdown List Item ------- -->
-                <li class="dropdown">
+                {{-- Salsa --}}
+                <!-- -------- Non Dropdown List Item ------- -->
+                <li>
                     <div class="title">
-                        <a href="#" class="link">
-                            <i class='bx bx-envelope'></i>
-                            <span class="name">Surat</span>
+                        <a href="{{ route('DanaMasuk') }}" class="link">
+                            <i class='bx bx-file'></i>
+                            <span class="name">Dana Masuk</span>
                         </a>
-                        <i class='bx bxs-chevron-down'></i>
-                    </div>
-                    <div class="submenu">
-                        <a href="#" class="link submenu-title">Surat</a>
-                        <a href="#" class="link">Request Surat</a>
-                        <a href="#" class="link">Surat Masuk</a>
-                        <a href="#" class="link">Kirim Surat</a>
-                        <a href="#" class="link">Arsip Surat</a>
-                    </div>
                 </li>
 
-                <!-- -------- Dropdown List Item ------- -->
-                <li class="dropdown">
+                {{-- Salsa --}}
+                <!-- -------- Non Dropdown List Item ------- -->
+                <li>
                     <div class="title">
-                        <a href="#" class="link">
-                            <i class='bx bxs-user-rectangle'></i>
-                            <span class="name">Kelola User</span>
+                        <a href="{{ route('LaporanDana') }}" class="link">
+                            <i class='bx bx-money'></i>
+                            <span class="name">Laporan Dana</span>
                         </a>
-                        <i class='bx bxs-chevron-down'></i>
-                    </div>
-                    <div class="submenu">
-                        <a href="#" class="link submenu-title">Users Aplikasi</a>
-                        <a href="{{ route('KelolaUsers') }}" class="link">Kelola User</a>
-                        <a href="{{ route('KelolaDivisi') }}" class="link">Divisi HMSI</a>
-                        <!-- submenu links here  -->
-                    </div>
                 </li>
 
                 <!-- -------- Non Dropdown List Item ------- -->
