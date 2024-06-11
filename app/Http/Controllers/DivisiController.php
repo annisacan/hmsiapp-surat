@@ -30,9 +30,9 @@ class DivisiController extends Controller
         ];
 
         $request->validate([
-            'id_role' => ['required'],
-            'name' => ['required'],
-            'role' => ['required'],
+            // 'id_role' => ['required'],
+            // 'name' => ['required'],
+            // 'role' => ['required'],
         ], $messages);
         
         Divisi::create([

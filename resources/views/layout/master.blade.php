@@ -17,6 +17,12 @@
     <link rel="shortcut icon" href="assets/img/kxp_fav.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Boxicons CSS -->
+    <link href="https://cdn.jsdelivr.net/boxicons/2.0.7/css/boxicons.min.css" rel="stylesheet">
+
 
 </head>
 
@@ -151,12 +157,15 @@
 
             @yield('content')
         </section>
-        
+
         <script src="{{ asset('public/sidebar-01/js/jquery.min.js') }}"></script>
         <script src="{{ asset('public/sidebar-01/js/popper.js') }}"></script>
         <script src="{{ asset('public/sidebar-01/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('public/sidebar-01/js/main.js') }}"></script>
         <script src="{{ asset('public/sidebar-02/assets/js/main.js') }}"></script>
+
+
+
 
     </body>
 
