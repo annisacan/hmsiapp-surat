@@ -96,6 +96,22 @@
                         <!-- submenu links here  -->
                     </div>
                 </li>
+                <!-- contoh kahim -->
+                <!-- -------- Non Dropdown List Item ------- -->
+                <li>
+                    <div class="title">
+                        <a href="{{ route('SuratMasukKahim') }}" class="link">
+                            <i class='bx bx-cog'></i>
+                            <span class="name">Surat Masuk Kahim</span>
+                        </a>
+                        <!-- <i class='bx bxs-chevron-down'></i> -->
+                    </div>
+                    <div class="submenu">
+                        <a href="#" class="link submenu-title">Settings</a>
+                        <!-- submenu links here  -->
+                    </div>
+                </li>
+
             </ul>
         </div>
 
