@@ -106,6 +106,20 @@
                 <!-- -------- Non Dropdown List Item ------- -->
                 <li>
                     <div class="title">
+                        <a href="{{ route('DashboardKahim') }}" class="link">
+                            <i class='bx bx-cog'></i>
+                            <span class="name">Dashboard Kahim</span>
+                        </a>
+                        <!-- <i class='bx bxs-chevron-down'></i> -->
+                    </div>
+                    <div class="submenu">
+                        <a href="#" class="link submenu-title">Dashboard Kahim</a>
+                        <!-- submenu links here  -->
+                    </div>
+                </li>
+
+                <li>
+                    <div class="title">
                         <a href="{{ route('SuratMasukKahim') }}" class="link">
                             <i class='bx bx-cog'></i>
                             <span class="name">Surat Masuk Kahim</span>
@@ -113,14 +127,14 @@
                         <!-- <i class='bx bxs-chevron-down'></i> -->
                     </div>
                     <div class="submenu">
-                        <a href="#" class="link submenu-title">Settings</a>
+                        <a href="#" class="link submenu-title">Surat Masuk Kahim</a>
                         <!-- submenu links here  -->
                     </div>
                 </li>
 
             </ul>
         </div>
-
+        <!-- -------- Non Dropdown List Item ------- -->
 
         <!-- ============= Home Section =============== -->
         <section class="home">
@@ -139,7 +153,7 @@
 
                 <div class="row">
                     <div class="bell mr-2">
-                        <i class='bx bxs-bell' ></i>
+                        <i class='bx bxs-bell'></i>
                     </div>
                     <div class="user">
                         <img src="assets/imgs/customer01.jpg" alt="">
@@ -151,8 +165,8 @@
                 @foreach ($errors->all() as $error)
                     <p class="text-danger">
                         {{ $errors }}
-                    </p>
-                @endforeach
+            </p>
+            @endforeach
             @endif --}}
 
             @yield('content')

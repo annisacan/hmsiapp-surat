@@ -11,6 +11,7 @@ use App\Http\Controllers\RequestController;
 use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\SuratDivController;
 use App\Http\Controllers\KahimController;
+use App\Http\Controllers\DashboardKahimController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::post('KelolaDivisi/hapus/{id}', [DivisiController::class, 'hapus'])->name
 Route::get('requestSurat/index', [RequestController::class, 'index'])-> name('RequestSurat');
 Route::get('requestSurat/create', [RequestController::class, 'index'])-> name('requestCreate');
 
+Route::get('DashboardKahim/index', [DashboardKahimController::class, 'index'])->name('DashboardKahim');
 Route::get('SuratMasukKahim/index', [KahimController::class, 'index'])->name('SuratMasukKahim');
 
 
