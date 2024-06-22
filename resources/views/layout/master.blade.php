@@ -64,9 +64,9 @@
                     </div>
                     <div class="submenu">
                         <a href="#" class="link submenu-title">Surat</a>
-                        <a href="#" class="link">Request Surat</a>
-                        <a href="#" class="link">Surat Masuk</a>
-                        <a href="#" class="link">Kirim Surat</a>
+                        <a href="{{ route('RequestSurat') }}" class="link">Request Surat</a>
+                        <a href="{{ route('SuratMasukSekre') }}" class="link">Surat Masuk</a>
+                        <a href="{{ route('SuratKeluarSekre') }}" class="link">Surat Keluar</a>
                         <a href="#" class="link">Arsip Surat</a>
                     </div>
                 </li>
