@@ -17,6 +17,12 @@
     <link rel="shortcut icon" href="assets/img/kxp_fav.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Boxicons CSS -->
+    <link href="https://cdn.jsdelivr.net/boxicons/2.0.7/css/boxicons.min.css" rel="stylesheet">
+
 
 </head>
 
@@ -50,23 +56,23 @@
                 </div>
             </li>
 
-            <!-- -------- Dropdown List Item ------- -->
-            <li class="dropdown">
-                <div class="title">
-                    <a href="#" class="link">
-                        <i class='bx bx-envelope'></i>
-                        <span class="name">Surat</span>
-                    </a>
-                    <i class='bx bxs-chevron-down'></i>
-                </div>
-                <div class="submenu">
-                    <a href="#" class="link submenu-title">Surat</a>
-                    <a href="#" class="link">Request Surat</a>
-                    <a href="#" class="link">Surat Masuk</a>
-                    <a href="#" class="link">Kirim Surat</a>
-                    <a href="#" class="link">Arsip Surat</a>
-                </div>
-            </li>
+                <!-- -------- Dropdown List Item ------- -->
+                <li class="dropdown">
+                    <div class="title">
+                        <a href="#" class="link">
+                            <i class='bx bx-envelope'></i>
+                            <span class="name">Surat</span>
+                        </a>
+                        <i class='bx bxs-chevron-down'></i>
+                    </div>
+                    <div class="submenu">
+                        <a href="#" class="link submenu-title">Surat</a>
+                        <a href="{{ route('RequestSurat') }}" class="link">Request Surat</a>
+                        <a href="{{ route('SuratMasukSekre') }}" class="link">Surat Masuk</a>
+                        <a href="{{ route('SuratKeluarSekre') }}" class="link">Surat Keluar</a>
+                        <a href="#" class="link">Arsip Surat</a>
+                    </div>
+                </li>
 
             <!-- -------- Dropdown List Item ------- -->
             <li class="dropdown">
@@ -106,17 +112,46 @@
                     <!-- submenu links here  -->
                 </div>
             </li>
+                <!-- contoh kahim -->
+                <!-- -------- Non Dropdown List Item ------- -->
+                <li>
+                    <div class="title">
+                        <a href="{{ route('DashboardKahim') }}" class="link">
+                            <i class='bx bx-cog'></i>
+                            <span class="name">Dashboard Kahim</span>
+                        </a>
+                        <!-- <i class='bx bxs-chevron-down'></i> -->
+                    </div>
+                    <div class="submenu">
+                        <a href="#" class="link submenu-title">Dashboard Kahim</a>
+                        <!-- submenu links here  -->
+                    </div>
+                </li>
+
+                <li>
+                    <div class="title">
+                        <a href="{{ route('SuratMasukKahim') }}" class="link">
+                            <i class='bx bx-cog'></i>
+                            <span class="name">Surat Masuk Kahim</span>
+                        </a>
+                        <!-- <i class='bx bxs-chevron-down'></i> -->
+                    </div>
+                    <div class="submenu">
+                        <a href="#" class="link submenu-title">Surat Masuk Kahim</a>
+                        <!-- submenu links here  -->
+                    </div>
+                </li>
+
         </ul>
     </div>
+        <!-- -------- Non Dropdown List Item ------- -->
 
-
-    <!-- ============= Home Section =============== -->
-    <section class="home">
-        <div class="topbar">
-            <div class="toggle-sidebar">
-                <i class='bx bx-menu'></i>
-                <div class="text">Toggle</div>
-            </div>
+        <!-- ============= Home Section =============== -->
+        <section class="home">
+            <div class="topbar">
+                <div class="toggle-sidebar">
+                    <i class='bx bx-menu'></i>
+                </div>
 
             <div class="search">
                 <label>
@@ -125,22 +160,22 @@
                 </label>
             </div>
 
-            <div class="row">
-                <div class="bell mr-2">
-                    <i class='bx bxs-bell'></i>
-                </div>
-                <div class="user">
-                    <img src="assets/imgs/customer01.jpg" alt="">
+                <div class="row">
+                    <div class="bell mr-2">
+                        <i class='bx bxs-bell'></i>
+                    </div>
+                    <div class="user">
+                        <img src="assets/imgs/customer01.jpg" alt="">
+                    </div>
                 </div>
             </div>
-        </div>
 
         {{-- @if ($errors->any())
                 @foreach ($errors->all() as $error)
                     <p class="text-danger">
                         {{ $errors }}
-                    </p>
-                @endforeach
+            </p>
+            @endforeach
             @endif --}}
 
         @yield('content')
@@ -151,8 +186,19 @@
     <script src="{{ asset('public/sidebar-01/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('public/sidebar-01/js/main.js') }}"></script>
     <script src="{{ asset('public/sidebar-02/assets/js/main.js') }}"></script>
+            @yield('content')
+        </section>
+
+        <script src="{{ asset('public/sidebar-01/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('public/sidebar-01/js/popper.js') }}"></script>
+        <script src="{{ asset('public/sidebar-01/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('public/sidebar-01/js/main.js') }}"></script>
+        <script src="{{ asset('public/sidebar-02/assets/js/main.js') }}"></script>
 
 
+
+
+    </body>
 
 </body>
 

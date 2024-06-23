@@ -4,7 +4,7 @@
     <div id="wrapper">
         <div class="row">
             <div class="col-md-6">
-                <h2 class="mb-4">Kirim Surat HMSI</h2>
+                <h2 class="mb-4">Surat Keluar</h2>
             </div>
         </div>
         <div id="content-wrapper" class="d-flex flex-column">

@@ -19,4 +19,14 @@ class DashboardController extends Controller
     {
         return view('dashboard');
     }
+
+    public function dashboardbend()
+    {
+        return view('dashboardbend');
+    }
+
+    public function dashboarddiv()
+    {
+        return view('dashboarddiv');
+    }
 }
