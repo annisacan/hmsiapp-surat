@@ -10,6 +10,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\SuratDivController;
+use App\Http\Controllers\KahimController;
+use App\Http\Controllers\DashboardKahimController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,8 +37,15 @@ Route::post('KelolaDivisi/update/{id}', [DivisiController::class, 'update'])->na
 Route::post('KelolaDivisi/hapus/{id}', [DivisiController::class, 'hapus'])->name('hapusDivisi');
 
 
-Route::get('requestSurat/index', [RequestController::class, 'index'])-> name('RequestSurat');
+Route::get('requestSurat/index', [RequestController::class, 'requestsurat'])-> name('RequestSurat');
 Route::get('requestSurat/create', [RequestController::class, 'index'])-> name('requestCreate');
+
+Route::get('SuratMasukSekre/index', [SuratController::class, 'suratmasuksekre'])->name('SuratMasukSekre');
+Route::get('SuratKeluarSekre/index', [SuratController::class, 'suratkeluarsekre'])->name('SuratKeluarSekre');
+
+Route::get('DashboardKahim/index', [DashboardKahimController::class, 'index'])->name('DashboardKahim');
+Route::get('SuratMasukKahim/index', [KahimController::class, 'index'])->name('SuratMasukKahim');
+
 
 
 Route::get('/DashboardBendahara', [DashboardController::class, 'dashboardbend'])->name('dashboard');

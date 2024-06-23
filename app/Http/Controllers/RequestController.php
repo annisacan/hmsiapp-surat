@@ -13,4 +13,9 @@ class RequestController extends Controller
         return view('surat.request.create');
     }
 
+    public function requestsurat()
+    {
+        return view('surat.request.index');
+    }
+
 }

@@ -10,4 +10,18 @@ class SuratController extends Controller
     {
         return view('surat.kelola.index');
     }
+
+    public function suratmasuksekre()
+    {
+        return view('surat.masuk.index');
+    }
+
+    public function suratkeluarsekre()
+    {
+        return view('surat.keluar.index');
+    }
+
+    
+
+
 }
