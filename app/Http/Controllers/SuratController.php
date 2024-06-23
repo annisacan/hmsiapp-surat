@@ -8,6 +8,10 @@ class SuratController extends Controller
 {
     public function index()
     {
+        if (!auth()->check()) {
+            return redirect()->route('login');
+        }
+        
         return view('surat.kelola.index');
     }
 
