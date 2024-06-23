@@ -82,31 +82,6 @@
                             <span class="name">Kirim Surat</span>
                         </a>
                 </li>
-
-                {{-- Salsa --}}
-                <!-- -------- Non Dropdown List Item ------- -->
-                <li>
-                    <div class="title">
-                        <a href="{{ route('ArsipSurat') }}" class="link">
-                            <i class='bx bx-folder-open'></i>
-                            <span class="name">Arsip Surat</span>
-                        </a>
-                </li>
-
-                <!-- -------- Non Dropdown List Item ------- -->
-                <li>
-                    <div class="title">
-                        <a href="#" class="link">
-                            <i class='bx bx-cog'></i>
-                            <span class="name">Settings</span>
-                        </a>
-                        <!-- <i class='bx bxs-chevron-down'></i> -->
-                    </div>
-                    <div class="submenu">
-                        <a href="#" class="link submenu-title">Settings</a>
-                        <!-- submenu links here  -->
-                    </div>
-                </li>
             </ul>
         </div>
 
@@ -116,7 +91,6 @@
             <div class="topbar">
                 <div class="toggle-sidebar">
                     <i class='bx bx-menu'></i>
-                    <div class="text">Toggle</div>
                 </div>
 
                 <div class="search">

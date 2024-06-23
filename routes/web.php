@@ -48,6 +48,16 @@ Route::get('ReqSurat/reqsurat', [SuratDivController::class, 'reqsurat'])-> name(
 Route::get('AjuanDana/ajuandana', [SuratDivController::class, 'ajuandana'])-> name('AjuanDana');
 Route::get('KirimSurat/kirimsurat', [SuratDivController::class, 'kirimsurat'])-> name('KirimSurat');
 Route::get('ArsipSurat/arsipsurat', [SuratDivController::class, 'arsipsurat'])-> name('ArsipSurat');
+Route::post('/request-surat', [SuratDivController::class, 'store'])->name('request-surat.store');
+Route::post('/ajuan-dana', [SuratDivController::class, 'storeAjuan'])->name('ajuan.store');
+Route::post('/kirim-surat', [SuratDivController::class, 'storeKirimSurat'])->name('kirim-surat.store');
+Route::put('/request-surat/{id}', [SuratDivController::class,'update'])->name('request-surat.update');
+
+
+
+
+
+
 
 // Route::get('kelolaDivisi/index', [DivisiController::class, 'index'])-> name('kelolaDivisi');
 

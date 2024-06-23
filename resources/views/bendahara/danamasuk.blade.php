@@ -27,9 +27,33 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($ajuans as $ajuan)
                             <tr>
-                                {{-- isi tabel --}}
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $ajuan->nama_dana }}</td>
+                                <td>{{ $ajuan->divisi ?? 'N/A' }}</td>
+                                <td><span class="status-badge {{ strtolower(str_replace(' ', '-', $ajuan->status ?? 'ditolak')) }}">
+                                    {{ $ajuan->status ?? 'Ditolak' }}
+                                </span></td>
+                                <td>{{ $ajuan->created_at->format('Y-m-d') }}</td>
+                                <td>
+                                    @if($ajuan->upload_nota)
+                                        <a href="{{ Storage::url($ajuan->upload_nota) }}" target="_blank">View Document</a>
+                                    @else
+                                        No Document
+                                    @endif
+                                </td>
+                                <td class="text-center">
+                                    <a href="#" class="btn btn-info btn-sm">Detail</a>
+                                    <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                                    <form action="#" method="POST" style="display: inline-block;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">Hapus</button>
+                                    </form>
+                                </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -30,9 +30,26 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($ajuans as $ajuan)
                             <tr>
-                                {{-- isi tabel --}}
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $ajuan->updated_at->format('Y-m-d') }}</td>
+                                <td>{{ $ajuan->nama_dana }}</td>
+                                <td>{{ $ajuan->total_pengeluaran }}</td>
+                                <td><span class="status-badge {{ strtolower(str_replace(' ', '-', $ajuan->status ?? 'ditolak')) }}">
+                                    {{ $ajuan->status ?? 'Ditolak' }}
+                                </span></td>
+                                <td class="text-center">
+                                    <a href="#" class="btn btn-info btn-sm">Detail</a>
+                                    <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                                    <form action="#" method="POST" style="display: inline-block;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">Hapus</button>
+                                    </form>
+                                </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -51,28 +68,29 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="{{ route('ajuan.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="nama-dana">Nama Dana</label>
-                            <input type="text" class="form-control" id="nama-dana">
+                            <input type="text" class="form-control" id="nama-dana" name="nama_dana" required>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="total-pengeluaran">Total Pengeluaran</label>
-                            <input type="text" class="form-control" id="total pengeluaran">
+                            <input type="text" class="form-control" id="total pengeluaran" name="total_pengeluaran" required>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="tanggal-nota">Tanggal Nota</label>
-                            <input type="date" class="form-control" id="tanggal-nota">
+                            <input type="date" class="form-control" id="tanggal-nota" name="tanggal_nota" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="deskripsi-dana">Deskripsi Dana</label>
-                        <textarea class="form-control no-resize" id="deskripsi-dana" rows="5"></textarea>
+                        <textarea class="form-control no-resize" id="deskripsi-dana" name="deskripsi_dana" rows="5" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="upload-nota">Upload Nota</label>
-                        <input type="file" class="form-control" id="upload-nota">
+                        <input type="file" class="form-control" id="upload-nota" name="upload_nota">
                     </div>
                     <div class="d-flex justify-content-end">
                         <button type="button" class="btn btn-secondary mr-2" data-dismiss="modal">Cancel</button>
@@ -102,6 +120,26 @@
 
 .no-resize {
     resize: none; /* Mencegah perubahan ukuran elemen textarea */
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #000; /* Warna teks */
+    border-radius: 15px; /* Membuat sudut membulat */
+}
+
+.status-badge.ditolak {
+    background-color: #ffcce0; /* Warna pink untuk Ditolak */
+}
+
+.status-badge.belum-dibaca {
+    background-color: #ffe6b3; /* Warna kuning untuk Belum dibaca */
+}
+
+.status-badge.diterima {
+    background-color: #ccffcc; /* Warna hijau untuk Diterima */
 }
 
 </style>
