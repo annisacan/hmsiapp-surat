@@ -9,6 +9,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\DivisiController;
 
+use Laravel\Fortify\Http\Controllers\NewPasswordController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,21 +22,26 @@ use App\Http\Controllers\DivisiController;
 |
 */
 
-Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
-Route::get('kirimSurat/index', [SuratController::class, 'index'])-> name('KirimSurat');
-Route::get('KelolaUser/index', [UserController::class, 'index'])-> name('KelolaUsers');
-Route::get('/login', [AuthController::class, 'index'])-> name('login');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+    Route::get('kirimSurat/index', [SuratController::class, 'index'])->name('KirimSurat');
+    Route::get('KelolaDivisi/index', [DivisiController::class, 'index'])->name('KelolaDivisi');
+    Route::get('KelolaDivisi/create', [DivisiController::class, 'create'])->name('createDivisi');
+    Route::post('KelolaDivisi/simpan', [DivisiController::class, 'simpan'])->name('simpanDivisi');
+    Route::get('KelolaDivisi/edit/{id}', [DivisiController::class, 'edit'])->name('editDivisi');
+    Route::post('KelolaDivisi/update/{id}', [DivisiController::class, 'update'])->name('updateDivisi');
+    Route::post('KelolaDivisi/hapus/{id}', [DivisiController::class, 'hapus'])->name('hapusDivisi');
+    Route::get('requestSurat/index', [RequestController::class, 'index'])->name('RequestSurat');
+    Route::get('requestSurat/create', [RequestController::class, 'create'])->name('requestCreate');
+    
+   
+    Route::get('KelolaUser', [UserController::class, 'index'])->name('KelolaUsers');
+    Route::post('KelolaUser/simpan', [UserController::class, 'store'])->name('simpanUser');
+    Route::put('KelolaUser/update/{id}', [UserController::class, 'update'])->name('updateUser');
+    Route::delete('KelolaUser/hapus/{id}', [UserController::class, 'delete'])->name('deleteUser');
+});
 
-Route::get('KelolaDivisi/index', [DivisiController::class, 'index'])-> name('KelolaDivisi');
-Route::get('KelolaDivisi/create', [DivisiController::class, 'create'])->name('createDivisi');
-Route::post('KelolaDivisi/simpan', [DivisiController::class, 'simpan'])->name('simpanDivisi');
-Route::get('KelolaDivisi/edit/{id}', [DivisiController::class, 'edit'])->name('editDivisi');
-Route::post('KelolaDivisi/update/{id}', [DivisiController::class, 'update'])->name('updateDivisi');
-Route::post('KelolaDivisi/hapus/{id}', [DivisiController::class, 'hapus'])->name('hapusDivisi');
 
-
-Route::get('requestSurat/index', [RequestController::class, 'index'])-> name('RequestSurat');
-Route::get('requestSurat/create', [RequestController::class, 'index'])-> name('requestCreate');
 
 // Route::get('kelolaDivisi/index', [DivisiController::class, 'index'])-> name('kelolaDivisi');
 

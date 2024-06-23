@@ -10,6 +10,10 @@ class DivisiController extends Controller
     //
     public function index()
     {
+        if (!auth()->check()) {
+            return redirect()->route('login');
+        }
+        
         $divisi = Divisi::all();
         // return $divisi;
         return view('users.divisi.index', compact('divisi'));
