@@ -9,11 +9,16 @@ use App\Http\Controllers\SuratController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\DivisiController;
+use App\Http\Controllers\BuatSuratController;
+use App\Http\Controllers\BeritaAcaraController;
+use App\Http\Controllers\UndanganRapatController;
+use App\Http\Controllers\SuratPeminjamanController;
 
 use Laravel\Fortify\Http\Controllers\NewPasswordController;
 use App\Http\Controllers\SuratDivController;
 use App\Http\Controllers\KahimController;
 use App\Http\Controllers\DashboardKahimController;
+use BuatSuratController as GlobalBuatSuratController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,8 +53,24 @@ Route::middleware(['auth'])->group(function () {
 
 
 Route::get('SuratMasukSekre/index', [SuratController::class, 'suratmasuksekre'])->name('SuratMasukSekre');
-Route::get('SuratKeluarSekre/index', [SuratController::class, 'suratkeluarsekre'])->name('SuratKeluarSekre');
 
+//Generate Surat
+Route::get('BuatSurat/index', [BuatSuratController::class, 'index'])->name('BuatSurat');
+
+//Berita Acara
+Route::post('berita-acara/store', [BeritaAcaraController::class, 'store'])->name('berita-acara.store');
+Route::get('berita-acara/print-berita-acara/{id}', [BeritaAcaraController::class, 'print'])->name('print.berita-acara');
+
+//Undangan Rapat
+Route::post('undangan-rapat/store', [UndanganRapatController::class, 'store'])->name('undangan-rapat.store');
+//Route::get('undangan-rapat/print-undangan-rapat/{id}', [UndanganRapatController::class, 'print'])->name('print.undangan-rapat');
+Route::get('/undangan-rapat/cetak/{id}', [UndanganRapatController::class, 'cetak'])->name('undangan-rapat.cetak');
+
+Route::post('surat-peminjaman/store', [SuratPeminjamanController::class, 'store'])->name('surat-peminjaman.store');
+//Route::get('undangan-rapat/print-undangan-rapat/{id}', [UndanganRapatController::class, 'print'])->name('print.undangan-rapat');
+Route::get('/surat-peminjaman/cetak/{id}', [SuratPeminjamanController::class, 'cetak'])->name('surat-peminjaman.cetak');
+
+//Kahim
 Route::get('DashboardKahim/index', [DashboardKahimController::class, 'index'])->name('DashboardKahim');
 Route::get('SuratMasukKahim/index', [KahimController::class, 'index'])->name('SuratMasukKahim');
 
