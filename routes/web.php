@@ -42,8 +42,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('KelolaDivisi/hapus/{id}', [DivisiController::class, 'hapus'])->name('hapusDivisi');
     Route::get('requestSurat/index', [RequestController::class, 'requestsurat'])->name('RequestSurat');
     Route::get('requestSurat/create', [RequestController::class, 'create'])->name('requestCreate');
-    
-   
+
+
     Route::get('KelolaUser', [UserController::class, 'index'])->name('KelolaUsers');
     Route::post('KelolaUser/simpan', [UserController::class, 'store'])->name('simpanUser');
     Route::put('KelolaUser/update/{id}', [UserController::class, 'update'])->name('updateUser');
@@ -76,11 +76,15 @@ Route::get('SuratMasukKahim/index', [KahimController::class, 'index'])->name('Su
 
 
 
-Route::get('/DashboardBendahara', [DashboardController::class, 'dashboardbend'])->name('dashboard');
+Route::get('/DashboardBendahara', [DashboardController::class, 'dashboardbend'])->name('dashboardbend');
 Route::get('DanaMasuk/danamasuk', [BendaharaController::class, 'danamasuk'])-> name('DanaMasuk');
+Route::put('/update-ajuan/{id}', [BendaharaController::class, 'update'])->name('update.ajuan');
+
 Route::get('LaporanDana/laporandana', [BendaharaController::class, 'laporandana'])-> name('LaporanDana');
 
-Route::get('/DashboardDivisi', [DashboardController::class, 'dashboarddiv'])->name('dashboard');
+
+// Route divisi
+Route::get('/DashboardDivisi', [DashboardController::class, 'dashboarddiv'])->name('dashboarddiv');
 Route::get('ReqSurat/reqsurat', [SuratDivController::class, 'reqsurat'])-> name('ReqSurat');
 Route::get('AjuanDana/ajuandana', [SuratDivController::class, 'ajuandana'])-> name('AjuanDana');
 Route::get('KirimSurat/kirimsurat', [SuratDivController::class, 'kirimsurat'])-> name('KirimSurat');
@@ -89,6 +93,12 @@ Route::post('/request-surat', [SuratDivController::class, 'store'])->name('reque
 Route::post('/ajuan-dana', [SuratDivController::class, 'storeAjuan'])->name('ajuan.store');
 Route::post('/kirim-surat', [SuratDivController::class, 'storeKirimSurat'])->name('kirim-surat.store');
 Route::put('/request-surat/{id}', [SuratDivController::class,'update'])->name('request-surat.update');
+Route::put('/ajuan/{id}', [SuratDivController::class,'updateAjuan'])->name('ajuan.update');
+Route::delete('/ajuan/{ajuan}', [SuratDivController::class,'destroy'])->name('ajuan.destroy');
+Route::delete('/request-surat/{request}', [SuratDivController::class,'destroySurat'])->name('request-surat.destroy');
+
+
+
 
 
 
