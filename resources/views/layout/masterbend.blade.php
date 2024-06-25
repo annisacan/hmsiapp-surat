@@ -10,6 +10,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="{{ asset('public/sidebar-01/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('public/sidebar-02/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('public/sidebar-03/assets/css/style.css') }}">
@@ -41,7 +42,7 @@
                 <!-- -------- Non Dropdown List Item ------- -->
                 <li>
                     <div class="title">
-                        <a href="{{ route('dashboard') }}" class="link">
+                        <a href="{{ route('dashboardbend') }}" class="link">
                             <i class='bx bx-pie-chart-alt-2'></i>
                             <span class="name">Dashboard</span>
                         </a>
@@ -75,13 +76,6 @@
 
                 <!-- -------- Non Dropdown List Item ------- -->
                 <li>
-                    <div class="title">
-                        <a href="#" class="link">
-                            <i class='bx bx-cog'></i>
-                            <span class="name">Settings</span>
-                        </a>
-                        <!-- <i class='bx bxs-chevron-down'></i> -->
-                    </div>
                     <div class="submenu">
                         <a href="#" class="link submenu-title">Settings</a>
                         <!-- submenu links here  -->

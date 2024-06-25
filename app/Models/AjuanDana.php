@@ -16,11 +16,19 @@ class AjuanDana extends Model
         'total_pengeluaran',
         'tanggal_nota',
         'deskripsi_dana',
-        'upload_nota'
+        'upload_nota',
+        'status',
+        'original_filename',
+        'status',
     ];
 
     public function getTotalPengeluaranAttribute($value)
     {
-        return 'Rp' . number_format($value, 2, ',', '.');
+        return 'Rp' . number_format($value );
+    }
+
+    public function updateBendahara()
+    {
+        return $this->hasOne(updateBendahara::class, 'ajuan_dana_id');
     }
 }

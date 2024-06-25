@@ -8,7 +8,6 @@
             </div>
             {{-- apakah disini ada tambah dana? --}}
         </div>
-        disini ada search
 
         <div id="content-wrapper" class="d-flex flex-column">
             <div class="card shadow mb-4">
@@ -16,18 +15,23 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th class="col">No.</th>
-                                <th class="col">Divisi</th>
-                                <th class="col">Perihal</th>
-                                <th class="col">Tanggal Surat</th>
-                                <th class="col">Dana</th>
-                                <th class="col-action text-center">Action</th>
+                                <th class="col text-center">No.</th>
+                                <th class="col text-center">Divisi</th>
+                                <th class="col text-center">Perihal</th>
+                                <th class="col text-center">Tanggal Ajuan</th>
+                                <th class="col text-center">Dana</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($ajuans as $ajuan)
                             <tr>
-                                {{-- isi tabel --}}
+                                <td class="text-center">{{ $loop->iteration }}</td>
+                                <td class="text-center">{{ $ajuan->divisi ?? 'N/A' }}</td>
+                                <td class="text-center">{{ $ajuan->nama_dana }}</td>
+                                <td class="text-center">{{ $ajuan->created_at->format('Y-m-d') }}</td>
+                                <td class="text-center">{{ $ajuan->total_pengeluaran }}</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
