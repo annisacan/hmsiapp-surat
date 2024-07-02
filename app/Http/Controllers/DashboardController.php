@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\AjuanDana;
+
 
 use Illuminate\Http\Request;
 
@@ -12,7 +14,7 @@ class DashboardController extends Controller
         if (!auth()->check()) {
             return redirect()->route('login');
         }
-        
+
         $this->middleware('auth');
     }
 
@@ -23,7 +25,8 @@ class DashboardController extends Controller
 
     public function dashboardbend()
     {
-        return view('dashboardbend');
+        $ajuans = AjuanDana::all();
+        return view('dashboardbend', compact('ajuans'));
     }
 
     public function dashboarddiv()

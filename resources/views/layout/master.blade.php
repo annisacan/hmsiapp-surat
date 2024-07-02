@@ -18,9 +18,15 @@
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
+
+    <link rel="shortcut icon" href="{{ asset('/admin/assets/img/illustrations/logo_kksp_surat.png') }}">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
+    <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous">
+    </script>
 </head>
 
 <body>
@@ -43,23 +49,23 @@
                 </div>
             </li>
 
-            @can('sekretaris')
-                <li class="dropdown">
-                    <div class="title">
-                        <a href="#" class="link">
-                            <i class='bx bx-envelope'></i>
-                            <span class="name">Surat</span>
-                        </a>
-                        <i class='bx bxs-chevron-down'></i>
-                    </div>
-                    <div class="submenu">
-                        <a href="#" class="link submenu-title">Surat</a>
-                        <a href="{{ route('RequestSurat') }}" class="link">Request Surat</a>
-                        <a href="{{ route('SuratMasukSekre') }}" class="link">Surat Masuk</a>
-                        <a href="{{ route('SuratKeluarSekre') }}" class="link">Surat Keluar</a>
-                        <a href="#" class="link">Arsip Surat</a>
-                    </div>
-                </li>
+        @can('sekretaris')
+            <li class="dropdown">
+                <div class="title">
+                    <a href="#" class="link">
+                        <i class='bx bx-envelope'></i>
+                        <span class="name">Surat</span>
+                    </a>
+                    <i class='bx bxs-chevron-down'></i>
+                </div>
+                <div class="submenu">
+                    <a href="#" class="link submenu-title">Surat</a>
+                    <a href="{{ route('RequestSurat') }}" class="link">Request Surat</a>
+                    <a href="{{ route('SuratMasukSekre') }}" class="link">Surat Masuk</a>
+                    <a href="{{ route('BuatSurat') }}" class="link">BuatSurat</a>
+                    <a href="#" class="link">Arsip Surat</a>
+                </div>
+            </li>
                 <li class="dropdown">
                     <div class="title">
                         <a href="#" class="link">
@@ -155,13 +161,42 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                         @csrf
                     </form>
+                    <!-- submenu links here  -->
+                </div>
+            </li>
+            <!-- contoh kahim -->
+            <!-- -------- Non Dropdown List Item ------- -->
+            <li>
+                <div class="title">
+                    <a href="{{ route('DashboardKahim') }}" class="link">
+                        <i class='bx bx-cog'></i>
+                        <span class="name">Dashboard Kahim</span>
+                    </a>
+                    <!-- <i class='bx bxs-chevron-down'></i> -->
+                </div>
+                <div class="submenu">
+                    <a href="#" class="link submenu-title">Dashboard Kahim</a>
+                    <!-- submenu links here  -->
                 </div>
             </li>
 
-            <!-- Add more menu items as needed -->
+            <li>
+                <div class="title">
+                    <a href="{{ route('SuratMasukKahim') }}" class="link">
+                        <i class='bx bx-cog'></i>
+                        <span class="name">Surat Masuk Kahim</span>
+                    </a>
+                    <!-- <i class='bx bxs-chevron-down'></i> -->
+                </div>
+                <div class="submenu">
+                    <a href="#" class="link submenu-title">Surat Masuk Kahim</a>
+                    <!-- submenu links here  -->
+                </div>
+            </li>
 
         </ul>
     </div>
+    <!-- -------- Non Dropdown List Item ------- -->
 
     <section class="home">
         <div class="topbar">
@@ -202,7 +237,23 @@
     <script src="{{ asset('public/sidebar-01/js/popper.js') }}"></script>
     <script src="{{ asset('public/sidebar-01/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('public/sidebar-01/js/main.js') }}"></script>
-    <script src="{{ asset('public/sidebar-02/assets/js/main.js') }}"></script> --}}
+    <script src="{{ asset('public/sidebar-02/assets/js/main.js') }}"></script>
+    @stack('prepend-script')
+    <script src="{{ url('/admin/js/jquery/jquery.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+    </script>
+    <script src="{{ url('/admin/js/scripts.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/bundle.js" crossorigin="anonymous"></script>
+    <script src="{{ url('/admin/js/litepicker.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.js"></script>
+    {{-- <script src="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script> --}}
+    @stack('addon-script')
+    @stack('alert-script')
+    @stack('sidenav-script')
+</body>
+
 </body>
 
 </html>

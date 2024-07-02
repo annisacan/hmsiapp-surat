@@ -39,19 +39,7 @@
             <!-- ========== List ============  -->
             <ul class="sidebar-list">
                 <!-- -------- Non Dropdown List Item ------- -->
-                <li>
-                    <div class="title">
-                        <a href="{{ route('dashboard') }}" class="link">
-                            <i class='bx bx-pie-chart-alt-2'></i>
-                            <span class="name">Dashboard</span>
-                        </a>
-                        <!-- <i class='bx bxs-chevron-down'></i> -->
-                    </div>
-                    <div class="submenu">
-                        <a href="#" class="link submenu-title">Dashboard</a>
-                        <!-- submenu links here  -->
-                    </div>
-                </li>
+                
 
                 {{-- Salsa --}}
                 <!-- -------- Non Dropdown List Item ------- -->
