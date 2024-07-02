@@ -1,4 +1,4 @@
-@extends('layout.masterbend')
+@extends('layout.master')
 
 @section('content')
     <div id="wrapper">

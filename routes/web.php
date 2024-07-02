@@ -9,6 +9,7 @@ use App\Http\Controllers\SuratController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\DivisiController;
+use App\Http\Controllers\RoleAssignmentController;
 
 use Laravel\Fortify\Http\Controllers\NewPasswordController;
 use App\Http\Controllers\SuratDivController;
@@ -27,7 +28,7 @@ use App\Http\Controllers\DashboardKahimController;
 */
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+    Route::get('/', [DashboardController::class, 'dashboardsekre'])->name('dashboardsekre');
     Route::get('kirimSurat/index', [SuratController::class, 'index'])->name('KirimSurat');
     Route::get('KelolaDivisi/index', [DivisiController::class, 'index'])->name('KelolaDivisi');
     Route::get('KelolaDivisi/create', [DivisiController::class, 'create'])->name('createDivisi');
@@ -37,37 +38,42 @@ Route::middleware(['auth'])->group(function () {
     Route::post('KelolaDivisi/hapus/{id}', [DivisiController::class, 'hapus'])->name('hapusDivisi');
     Route::get('requestSurat/index', [RequestController::class, 'requestsurat'])->name('RequestSurat');
     Route::get('requestSurat/create', [RequestController::class, 'create'])->name('requestCreate');
-    
-   
+
+
     Route::get('KelolaUser', [UserController::class, 'index'])->name('KelolaUsers');
     Route::post('KelolaUser/simpan', [UserController::class, 'store'])->name('simpanUser');
-    Route::put('KelolaUser/update/{id}', [UserController::class, 'update'])->name('updateUser');
+    Route::put('/KelolaUser/update/{id}', [UserController::class, 'update'])->name('updateUser');
     Route::delete('KelolaUser/hapus/{id}', [UserController::class, 'delete'])->name('deleteUser');
+
+    Route::get('SuratMasukSekre/index', [SuratController::class, 'suratmasuksekre'])->name('SuratMasukSekre');
+    Route::get('SuratKeluarSekre/index', [SuratController::class, 'suratkeluarsekre'])->name('SuratKeluarSekre');
+
+    Route::get('DashboardKahim/index', [DashboardKahimController::class, 'index'])->name('DashboardKahim');
+    Route::get('SuratMasukKahim/index', [KahimController::class, 'index'])->name('SuratMasukKahim');
+
+    Route::get('DashboardBendahara', [DashboardController::class, 'dashboardbend'])->name('dashboard');
+    Route::get('DanaMasuk/danamasuk', [BendaharaController::class, 'danamasuk'])->name('DanaMasuk');
+    Route::get('LaporanDana/laporandana', [BendaharaController::class, 'laporandana'])->name('LaporanDana');
+
+    Route::get('/DashboardDivisi', [DashboardController::class, 'dashboarddiv'])->name('dashboard');
+    Route::get('ReqSurat/reqsurat', [SuratDivController::class, 'reqsurat'])->name('ReqSurat');
+    Route::get('AjuanDana/ajuandana', [SuratDivController::class, 'ajuandana'])->name('AjuanDana');
+    Route::get('KirimSurat/kirimsurat', [SuratDivController::class, 'kirimsurat'])->name('KirimSurat');
+    Route::get('ArsipSurat/arsipsurat', [SuratDivController::class, 'arsipsurat'])->name('ArsipSurat');
+    Route::post('/request-surat', [SuratDivController::class, 'store'])->name('request-surat.store');
+    Route::post('/ajuan-dana', [SuratDivController::class, 'storeAjuan'])->name('ajuan.store');
+    Route::post('/kirim-surat', [SuratDivController::class, 'storeKirimSurat'])->name('kirim-surat.store');
+    Route::put('/request-surat/{id}', [SuratDivController::class, 'update'])->name('request-surat.update');
+    
+    Route::get('Profile', [UserController::class, 'profile'])->name('Profile');
+    Route::put('Profile/update/{id}', [UserController::class, 'updateProfile'])->name('updateProfile');
+    Route::post('Profile/changepassword', [UserController::class, 'changePassword'])->name('changePassword');
+    
 });
 
 
 
-Route::get('SuratMasukSekre/index', [SuratController::class, 'suratmasuksekre'])->name('SuratMasukSekre');
-Route::get('SuratKeluarSekre/index', [SuratController::class, 'suratkeluarsekre'])->name('SuratKeluarSekre');
 
-Route::get('DashboardKahim/index', [DashboardKahimController::class, 'index'])->name('DashboardKahim');
-Route::get('SuratMasukKahim/index', [KahimController::class, 'index'])->name('SuratMasukKahim');
-
-
-
-Route::get('/DashboardBendahara', [DashboardController::class, 'dashboardbend'])->name('dashboard');
-Route::get('DanaMasuk/danamasuk', [BendaharaController::class, 'danamasuk'])-> name('DanaMasuk');
-Route::get('LaporanDana/laporandana', [BendaharaController::class, 'laporandana'])-> name('LaporanDana');
-
-Route::get('/DashboardDivisi', [DashboardController::class, 'dashboarddiv'])->name('dashboard');
-Route::get('ReqSurat/reqsurat', [SuratDivController::class, 'reqsurat'])-> name('ReqSurat');
-Route::get('AjuanDana/ajuandana', [SuratDivController::class, 'ajuandana'])-> name('AjuanDana');
-Route::get('KirimSurat/kirimsurat', [SuratDivController::class, 'kirimsurat'])-> name('KirimSurat');
-Route::get('ArsipSurat/arsipsurat', [SuratDivController::class, 'arsipsurat'])-> name('ArsipSurat');
-Route::post('/request-surat', [SuratDivController::class, 'store'])->name('request-surat.store');
-Route::post('/ajuan-dana', [SuratDivController::class, 'storeAjuan'])->name('ajuan.store');
-Route::post('/kirim-surat', [SuratDivController::class, 'storeKirimSurat'])->name('kirim-surat.store');
-Route::put('/request-surat/{id}', [SuratDivController::class,'update'])->name('request-surat.update');
 
 
 

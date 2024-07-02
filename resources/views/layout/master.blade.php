@@ -5,58 +5,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="csrf-token" content=" {{ csrf_token() }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Surat HMSI</title>
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ asset('public/sidebar-01/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/sidebar-02/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/sidebar-03/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('sidebar-01/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('sidebar-02/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('sidebar-03/assets/css/style.css') }}">
 
-    <link rel="shortcut icon" href="assets/img/kxp_fav.png" type="image/x-icon">
+    <link rel="icon" href="{{ asset('hmsi.png') }}" type="image/png">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-    <!-- Boxicons CSS -->
-    <link href="https://cdn.jsdelivr.net/boxicons/2.0.7/css/boxicons.min.css" rel="stylesheet">
-
-
 </head>
 
 <body>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
     <div class="sidebar close">
-        <!-- ========== Logo ============  -->
         <a href="#" class="logo-box">
             <i class='bx bxs-graduation'></i>
             <div class="logo-name">HMSI Surat App</div>
         </a>
 
-        <!-- ========== List ============  -->
         <ul class="sidebar-list">
-            <!-- -------- Non Dropdown List Item ------- -->
             <li>
                 <div class="title">
-                    <a href="{{ route('dashboard') }}" class="link">
+                    <a href="{{ route('dashboardsekre') }}" class="link">
                         <i class='bx bx-pie-chart-alt-2'></i>
                         <span class="name">Dashboard</span>
                     </a>
-                    <!-- <i class='bx bxs-chevron-down'></i> -->
                 </div>
                 <div class="submenu">
                     <a href="#" class="link submenu-title">Dashboard</a>
-                    <!-- submenu links here  -->
                 </div>
             </li>
 
-                <!-- -------- Dropdown List Item ------- -->
+            @can('sekretaris')
                 <li class="dropdown">
                     <div class="title">
                         <a href="#" class="link">
@@ -73,133 +60,149 @@
                         <a href="#" class="link">Arsip Surat</a>
                     </div>
                 </li>
+                <li class="dropdown">
+                    <div class="title">
+                        <a href="#" class="link">
+                            <i class='bx bxs-user-rectangle'></i>
+                            <span class="name">Management</span>
+                        </a>
+                        <i class='bx bxs-chevron-down'></i>
+                    </div>
+                    <div class="submenu">
+                        <a href="#" class="link submenu-title">Management Aplikasi</a>
+                        <a href="{{ route('KelolaUsers') }}" class="link">Kelola User</a>
+                        <a href="{{ route('KelolaDivisi') }}" class="link">Divisi User</a>
+                    </div>
+                </li>
+            @endcan
 
-            <!-- -------- Dropdown List Item ------- -->
-            <li class="dropdown">
-                <div class="title">
-                    <a href="#" class="link">
-                        <i class='bx bxs-user-rectangle'></i>
-                        <span class="name">Kelola User</span>
-                    </a>
-                    <i class='bx bxs-chevron-down'></i>
-                </div>
-                <div class="submenu">
-                    <a href="#" class="link submenu-title">Users Aplikasi</a>
-                    <a href="{{ route('KelolaUsers') }}" class="link">Kelola User</a>
-                    <a href="{{ route('KelolaDivisi') }}" class="link">Role User</a>
-                    <!-- submenu links here  -->
-                </div>
-            </li>
+            @can('bendahara')
+                <li>
+                    <div class="title">
+                        <a href="{{ route('DanaMasuk') }}" class="link">
+                            <i class='bx bx-money'></i>
+                            <span class="name">Dana Masuk</span>
+                        </a>
+                    </div>
+                    <div class="submenu">
+                        <a href="#" class="link submenu-title">Dana Masuk</a>
+                    </div>
+                </li>
 
-            <!-- -------- Non Dropdown List Item ------- -->
+                <li>
+                    <div class="title">
+                        <a href="{{ route('LaporanDana') }}" class="link">
+                            <i class='bx bx-file'></i>
+                            <span class="name">Laporan Dana</span>
+                        </a>
+                    </div>
+                    <div class="submenu">
+                        <a href="#" class="link submenu-title">Laporan Dana</a>
+                    </div>
+                </li>
+            @endcan
+
+            @can('anggota')
+                <li>
+                    <div class="title">
+                        <a href="{{ route('ReqSurat') }}" class="link">
+                            <i class='bx bx-file'></i>
+                            <span class="name">Request Surat</span>
+                        </a>
+                    </div>
+                    <div class="submenu">
+                        <a href="#" class="link submenu-title">Request Surat</a>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="title">
+                        <a href="{{ route('AjuanDana') }}" class="link">
+                            <i class='bx bx-money'></i>
+                            <span class="name">Ajuan Dana</span>
+                        </a>
+                    </div>
+                    <div class="submenu">
+                        <a href="#" class="link submenu-title">Ajuan Dana</a>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="title">
+                        <a href="{{ route('KirimSurat') }}" class="link">
+                            <i class='bx bx-upload'></i>
+                            <span class="name">Kirim Surat</span>
+                        </a>
+                    </div>
+                    <div class="submenu">
+                        <a href="#" class="link submenu-title">Kirim Surat</a>
+                    </div>
+                </li>
+            @endcan
             <li class="dropdown">
                 <div class="title">
                     <a href="#" class="link">
                         <i class='bx bx-cog'></i>
                         <span class="name">Settings</span>
                     </a>
-                    <!-- <i class='bx bxs-chevron-down'></i> -->
                 </div>
                 <div class="submenu">
                     <a href="#" class="link submenu-title">Settings</a>
-                    <a href="#" class="link submenu-title">Profile</a>
+                    <a href="{{ route('Profile') }}" class="link submenu-title">Profile</a>
                     <a href="{{ route('logout') }}" class="link submenu-title"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                         @csrf
                     </form>
-                    <!-- submenu links here  -->
                 </div>
             </li>
-                <!-- contoh kahim -->
-                <!-- -------- Non Dropdown List Item ------- -->
-                <li>
-                    <div class="title">
-                        <a href="{{ route('DashboardKahim') }}" class="link">
-                            <i class='bx bx-cog'></i>
-                            <span class="name">Dashboard Kahim</span>
-                        </a>
-                        <!-- <i class='bx bxs-chevron-down'></i> -->
-                    </div>
-                    <div class="submenu">
-                        <a href="#" class="link submenu-title">Dashboard Kahim</a>
-                        <!-- submenu links here  -->
-                    </div>
-                </li>
 
-                <li>
-                    <div class="title">
-                        <a href="{{ route('SuratMasukKahim') }}" class="link">
-                            <i class='bx bx-cog'></i>
-                            <span class="name">Surat Masuk Kahim</span>
-                        </a>
-                        <!-- <i class='bx bxs-chevron-down'></i> -->
-                    </div>
-                    <div class="submenu">
-                        <a href="#" class="link submenu-title">Surat Masuk Kahim</a>
-                        <!-- submenu links here  -->
-                    </div>
-                </li>
+            <!-- Add more menu items as needed -->
 
         </ul>
     </div>
-        <!-- -------- Non Dropdown List Item ------- -->
 
-        <!-- ============= Home Section =============== -->
-        <section class="home">
-            <div class="topbar">
-                <div class="toggle-sidebar">
-                    <i class='bx bx-menu'></i>
-                </div>
-
+    <section class="home">
+        <div class="topbar">
+            <div class="toggle-sidebar">
+                <i class='bx bx-menu'></i>
+            </div>
             <div class="search">
                 <label>
                     <input type="text" placeholder="Search here">
                     <ion-icon name="search-outline"></ion-icon>
                 </label>
             </div>
-
-                <div class="row">
-                    <div class="bell mr-2">
-                        <i class='bx bxs-bell'></i>
-                    </div>
-                    <div class="user">
-                        <img src="assets/imgs/customer01.jpg" alt="">
-                    </div>
+            <div class="row">
+                {{-- <div class="bell mr-2">
+                    <i class='bx bxs-bell'></i>
+                </div> --}}
+                <div class="user">
+                    @if (Auth::user()->avatar)
+                        <img src="{{ asset('storage/' . Auth::user()->avatar) }}" alt="Avatar"
+                            class="img-thumbnail">
+                    @else
+                        <img src="{{ asset('storage/avatars/default-avatar.jpg') }}" alt="Default Avatar"
+                            class="img-thumbnail">
+                    @endif
                 </div>
             </div>
-
-        {{-- @if ($errors->any())
-                @foreach ($errors->all() as $error)
-                    <p class="text-danger">
-                        {{ $errors }}
-            </p>
-            @endforeach
-            @endif --}}
-
+        </div>
         @yield('content')
     </section>
 
+    <script src="{{ asset('sidebar-01/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('sidebar-01/js/popper.js') }}"></script>
+    <script src="{{ asset('sidebar-01/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('sidebar-01/js/main.js') }}"></script>
+    <script src="{{ asset('sidebar-02/assets/js/main.js') }}"></script>
+    {{-- 
     <script src="{{ asset('public/sidebar-01/js/jquery.min.js') }}"></script>
     <script src="{{ asset('public/sidebar-01/js/popper.js') }}"></script>
     <script src="{{ asset('public/sidebar-01/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('public/sidebar-01/js/main.js') }}"></script>
-    <script src="{{ asset('public/sidebar-02/assets/js/main.js') }}"></script>
-            @yield('content')
-        </section>
-
-        <script src="{{ asset('public/sidebar-01/js/jquery.min.js') }}"></script>
-        <script src="{{ asset('public/sidebar-01/js/popper.js') }}"></script>
-        <script src="{{ asset('public/sidebar-01/js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('public/sidebar-01/js/main.js') }}"></script>
-        <script src="{{ asset('public/sidebar-02/assets/js/main.js') }}"></script>
-
-
-
-
-    </body>
-
+    <script src="{{ asset('public/sidebar-02/assets/js/main.js') }}"></script> --}}
 </body>
 
 </html>

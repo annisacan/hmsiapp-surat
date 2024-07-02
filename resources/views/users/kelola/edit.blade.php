@@ -1,51 +1,55 @@
-<!-- Edit User Modal -->
-<div class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="editUserModalLabel"
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <form id="editUserForm" action="" method="POST">
-            @csrf
-            @method('PUT')
-            <div class="modal-header">
-                <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <input type="hidden" id="edit_user_id" name="id">
-                <div class="form-group">
-                    <label for="edit_name">Nama</label>
-                    <input type="text" class="form-control" id="edit_name" name="name" required>
+<!-- Modal -->
+
+<style>
+    .modal-body {text-align: left}
+</style>
+<div class="modal fade" id="ModalEdit{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="ModalEditLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="{{ route('updateUser', $user->id) }}" method="post" enctype="multipart/form-data">
+                {{ method_field('PUT') }}
+                {{ csrf_field() }}
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalEditLabel">{{ __('Edit User') }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="form-group">
-                    <label for="edit_email">Email</label>
-                    <input type="email" class="form-control" id="edit_email" name="email" required>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="name">{{ __('Name') }}</label>
+                        <input type="text" name="name" value="{{ $user->name }}" placeholder="Name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">{{ __('Email') }}</label>
+                        <input type="text" name="email" value="{{ $user->email }}" placeholder="Email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">{{ __('Password') }}</label>
+                        <input type="password" name="password" placeholder="Password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">{{ __('Confirm Password') }}</label>
+                        <input type="password" name="password_confirmation" placeholder="Confirm Password" class="form-control">
+                    </div>                    
+                    <div class="form-group">
+                        <label for="roles">{{ __('Role') }}</label>
+                        <select name="roles[]" class="form-control">
+                            @foreach ($roles as $role)
+                                <option value="{{ $role->id }}" {{ in_array($role->id, $userRole) ? 'selected' : '' }}>
+                                    {{ $role->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="edit_role">Role</label>
-                    <select class="form-control" id="edit_role" name="role" required>
-                        <option value="anggota">Anggota</option>
-                        <option value="kahim">Kahim</option>
-                        <option value="sekretaris">Sekretaris</option>
-                        <option value="bendahara">Bendahara</option>
-                    </select>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Close') }}</button>
+                    <button type="submit" class="btn btn-primary">{{ __('Save changes') }}</button>
                 </div>
-                <div class="form-group">
-                    <label for="edit_password">Password (optional)</label>
-                    <input type="password" class="form-control" id="edit_password" name="password">
-                </div>
-                <div class="form-group">
-                    <label for="edit_password_confirmation">Konfirmasi Password</label>
-                    <input type="password" class="form-control" id="edit_password_confirmation"
-                        name="password_confirmation">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
 </div>

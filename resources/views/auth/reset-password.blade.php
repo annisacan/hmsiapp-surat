@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Surat HMSI</title>
+    <link rel="icon" href="{{ asset('hmsi.png') }}" type="image/png">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -75,7 +76,7 @@
             <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
                 style="background: #ffffff;">
                 <div class="featured-image mb-3">
-                    <img src="{{ asset('storage/hmsi.png') }}" class="img-fluid" style="width: 350px;">
+                    <img src="{{ asset('hmsi.png') }}" class="img-fluid" style="width: 350px;">
                 </div>
                 <p class="text-black fs-2" style="font-weight: 600;">
                     HMSI SURAT</p>

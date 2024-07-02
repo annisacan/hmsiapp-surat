@@ -11,6 +11,7 @@
         <!-- Content Row -->
 
         <div class="cardBox">
+            
             <div class="card">
                 <div>
                     <div class="numbers">1,504</div>

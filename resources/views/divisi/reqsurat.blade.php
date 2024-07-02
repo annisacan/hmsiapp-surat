@@ -1,4 +1,4 @@
-@extends('layout.masterdiv')
+@extends('layout.master')
 
 @section('content')
 <div id="wrapper">

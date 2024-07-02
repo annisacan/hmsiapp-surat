@@ -15,7 +15,8 @@ class DashboardController extends Controller
         
         $this->middleware('auth');
     }
-    public function dashboard()
+
+    public function dashboardsekre()
     {
         return view('dashboard');
     }
