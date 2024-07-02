@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,7 +13,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('ajuan_danas', function (Blueprint $table) {
-            $table->string('status')->after('tanggal_nota'); // Add the column
+            if (!Schema::hasColumn('ajuan_danas', 'status')) {
+                $table->string('status')->after('tanggal_nota'); // Add the column
+            }
         });
     }
 
@@ -26,7 +27,9 @@ return new class extends Migration
     public function down()
     {
         Schema::table('ajuan_danas', function (Blueprint $table) {
-            $table->dropColumn('status');
+            if (Schema::hasColumn('ajuan_danas', 'status')) {
+                $table->dropColumn('status');
+            }
         });
     }
 };

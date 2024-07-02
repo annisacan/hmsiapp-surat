@@ -49,23 +49,23 @@
                 </div>
             </li>
 
-        @can('sekretaris')
-            <li class="dropdown">
-                <div class="title">
-                    <a href="#" class="link">
-                        <i class='bx bx-envelope'></i>
-                        <span class="name">Surat</span>
-                    </a>
-                    <i class='bx bxs-chevron-down'></i>
-                </div>
-                <div class="submenu">
-                    <a href="#" class="link submenu-title">Surat</a>
-                    <a href="{{ route('RequestSurat') }}" class="link">Request Surat</a>
-                    <a href="{{ route('SuratMasukSekre') }}" class="link">Surat Masuk</a>
-                    <a href="{{ route('BuatSurat') }}" class="link">BuatSurat</a>
-                    <a href="#" class="link">Arsip Surat</a>
-                </div>
-            </li>
+            @can('sekretaris')
+                <li class="dropdown">
+                    <div class="title">
+                        <a href="#" class="link">
+                            <i class='bx bx-envelope'></i>
+                            <span class="name">Surat</span>
+                        </a>
+                        <i class='bx bxs-chevron-down'></i>
+                    </div>
+                    <div class="submenu">
+                        <a href="#" class="link submenu-title">Surat</a>
+                        <a href="{{ route('RequestSurat') }}" class="link">Request Surat</a>
+                        <a href="{{ route('SuratMasukSekre') }}" class="link">Surat Masuk</a>
+                        <a href="{{ route('BuatSurat') }}" class="link">BuatSurat</a>
+                        <a href="#" class="link">Arsip Surat</a>
+                    </div>
+                </li>
                 <li class="dropdown">
                     <div class="title">
                         <a href="#" class="link">
@@ -145,17 +145,34 @@
                     </div>
                 </li>
             @endcan
+
+            @can('kahim')
+                <li>
+                    <div class="title">
+                        <a href="{{ route('SuratMasukKahim') }}" class="link">
+                            <i class='bx bx-file'></i> 
+                            <span class="name">Surat Masuk</span>
+                        </a>
+                        <!-- <i class='bx bxs-chevron-down'></i> -->
+                    </div>
+                    <div class="submenu">
+                        <a href="#" class="link submenu-title">Surat Masuk</a>
+                        <!-- submenu links here  -->
+                    </div>
+                </li>
+            @endcan
             <li class="dropdown">
                 <div class="title">
                     <a href="#" class="link">
                         <i class='bx bx-cog'></i>
                         <span class="name">Settings</span>
                     </a>
+                    <i class='bx bxs-chevron-down'></i>
                 </div>
                 <div class="submenu">
                     <a href="#" class="link submenu-title">Settings</a>
-                    <a href="{{ route('Profile') }}" class="link submenu-title">Profile</a>
-                    <a href="{{ route('logout') }}" class="link submenu-title"
+                    <a href="{{ route('Profile') }}" class="link">Profile</a>
+                    <a href="{{ route('logout') }}" class="link"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
@@ -163,36 +180,10 @@
                     </form>
                     <!-- submenu links here  -->
                 </div>
+
             </li>
             <!-- contoh kahim -->
             <!-- -------- Non Dropdown List Item ------- -->
-            <li>
-                <div class="title">
-                    <a href="{{ route('DashboardKahim') }}" class="link">
-                        <i class='bx bx-cog'></i>
-                        <span class="name">Dashboard Kahim</span>
-                    </a>
-                    <!-- <i class='bx bxs-chevron-down'></i> -->
-                </div>
-                <div class="submenu">
-                    <a href="#" class="link submenu-title">Dashboard Kahim</a>
-                    <!-- submenu links here  -->
-                </div>
-            </li>
-
-            <li>
-                <div class="title">
-                    <a href="{{ route('SuratMasukKahim') }}" class="link">
-                        <i class='bx bx-cog'></i>
-                        <span class="name">Surat Masuk Kahim</span>
-                    </a>
-                    <!-- <i class='bx bxs-chevron-down'></i> -->
-                </div>
-                <div class="submenu">
-                    <a href="#" class="link submenu-title">Surat Masuk Kahim</a>
-                    <!-- submenu links here  -->
-                </div>
-            </li>
 
         </ul>
     </div>
@@ -249,6 +240,16 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.js"></script>
     {{-- <script src="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script> --}}
+    @stack('prepend-script')
+    <script src="{{ url('/admin/js/jquery/jquery.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+    </script>
+    <script src="{{ url('/admin/js/scripts.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/bundle.js" crossorigin="anonymous"></script>
+    <script src="{{ url('/admin/js/litepicker.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.js"></script>
     @stack('addon-script')
     @stack('alert-script')
     @stack('sidenav-script')
