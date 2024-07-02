@@ -51,38 +51,38 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('KelolaUser/hapus/{id}', [UserController::class, 'delete'])->name('deleteUser');
 
     Route::get('SuratMasukSekre/index', [SuratController::class, 'suratmasuksekre'])->name('SuratMasukSekre');
-    
-//Generate Surat
-Route::get('BuatSurat/index', [BuatSuratController::class, 'index'])->name('BuatSurat');
 
-//Berita Acara
-Route::post('berita-acara/store', [BeritaAcaraController::class, 'store'])->name('berita-acara.store');
-Route::get('berita-acara/print-berita-acara/{id}', [BeritaAcaraController::class, 'print'])->name('print.berita-acara');
+    //Generate Surat
+    Route::get('BuatSurat/index', [BuatSuratController::class, 'index'])->name('BuatSurat');
 
-//Undangan Rapat
-Route::post('undangan-rapat/store', [UndanganRapatController::class, 'store'])->name('undangan-rapat.store');
-//Route::get('undangan-rapat/print-undangan-rapat/{id}', [UndanganRapatController::class, 'print'])->name('print.undangan-rapat');
-Route::get('/undangan-rapat/cetak/{id}', [UndanganRapatController::class, 'cetak'])->name('undangan-rapat.cetak');
+    //Berita Acara
+    Route::post('berita-acara/store', [BeritaAcaraController::class, 'store'])->name('berita-acara.store');
+    Route::get('berita-acara/print-berita-acara/{id}', [BeritaAcaraController::class, 'print'])->name('print.berita-acara');
 
-Route::post('surat-peminjaman/store', [SuratPeminjamanController::class, 'store'])->name('surat-peminjaman.store');
-//Route::get('undangan-rapat/print-undangan-rapat/{id}', [UndanganRapatController::class, 'print'])->name('print.undangan-rapat');
-Route::get('/surat-peminjaman/cetak/{id}', [SuratPeminjamanController::class, 'cetak'])->name('surat-peminjaman.cetak');
+    //Undangan Rapat
+    Route::post('undangan-rapat/store', [UndanganRapatController::class, 'store'])->name('undangan-rapat.store');
+    //Route::get('undangan-rapat/print-undangan-rapat/{id}', [UndanganRapatController::class, 'print'])->name('print.undangan-rapat');
+    Route::get('/undangan-rapat/cetak/{id}', [UndanganRapatController::class, 'cetak'])->name('undangan-rapat.cetak');
 
-//Kahim
+    Route::post('surat-peminjaman/store', [SuratPeminjamanController::class, 'store'])->name('surat-peminjaman.store');
+    //Route::get('undangan-rapat/print-undangan-rapat/{id}', [UndanganRapatController::class, 'print'])->name('print.undangan-rapat');
+    Route::get('/surat-peminjaman/cetak/{id}', [SuratPeminjamanController::class, 'cetak'])->name('surat-peminjaman.cetak');
+
+    //Kahim
     Route::get('DashboardKahim/index', [DashboardKahimController::class, 'index'])->name('DashboardKahim');
     Route::get('SuratMasukKahim/index', [KahimController::class, 'index'])->name('SuratMasukKahim');
 
 
 
-Route::get('/DashboardBendahara', [DashboardController::class, 'dashboardbend'])->name('dashboardbend');
-Route::get('DanaMasuk/danamasuk', [BendaharaController::class, 'danamasuk'])-> name('DanaMasuk');
-Route::put('/update-ajuan/{id}', [BendaharaController::class, 'update'])->name('update.ajuan');
+    Route::get('/DashboardBendahara', [DashboardController::class, 'dashboardbend'])->name('dashboardbend');
+    Route::get('DanaMasuk/danamasuk', [BendaharaController::class, 'danamasuk'])->name('DanaMasuk');
+    Route::put('/update-ajuan/{id}', [BendaharaController::class, 'update'])->name('update.ajuan');
 
-Route::get('LaporanDana/laporandana', [BendaharaController::class, 'laporandana'])-> name('LaporanDana');
+    Route::get('LaporanDana/laporandana', [BendaharaController::class, 'laporandana'])->name('LaporanDana');
 
-    
-// Route divisi
-Route::get('/DashboardDivisi', [DashboardController::class, 'dashboarddiv'])->name('dashboarddiv');
+
+    // Route divisi
+    Route::get('/DashboardDivisi', [DashboardController::class, 'dashboarddiv'])->name('dashboarddiv');
     Route::get('ReqSurat/reqsurat', [SuratDivController::class, 'reqsurat'])->name('ReqSurat');
     Route::get('AjuanDana/ajuandana', [SuratDivController::class, 'ajuandana'])->name('AjuanDana');
     Route::get('KirimSurat/kirimsurat', [SuratDivController::class, 'kirimsurat'])->name('KirimSurat');
@@ -91,19 +91,19 @@ Route::get('/DashboardDivisi', [DashboardController::class, 'dashboarddiv'])->na
     Route::post('/ajuan-dana', [SuratDivController::class, 'storeAjuan'])->name('ajuan.store');
     Route::post('/kirim-surat', [SuratDivController::class, 'storeKirimSurat'])->name('kirim-surat.store');
     Route::put('/request-surat/{id}', [SuratDivController::class, 'update'])->name('request-surat.update');
-    
+
+    Route::put('/ajuan/{id}', [SuratDivController::class, 'updateAjuan'])->name('ajuan.update');
+    Route::delete('/ajuan/{ajuan}', [SuratDivController::class, 'destroy'])->name('ajuan.destroy');
+    Route::delete('/request-surat/{request}', [SuratDivController::class, 'destroySurat'])->name('request-surat.destroy');
+
     Route::get('Profile', [UserController::class, 'profile'])->name('Profile');
     Route::put('Profile/update/{id}', [UserController::class, 'updateProfile'])->name('updateProfile');
     Route::post('Profile/changepassword', [UserController::class, 'changePassword'])->name('changePassword');
-    
 });
 
 
 
 
-Route::put('/ajuan/{id}', [SuratDivController::class,'updateAjuan'])->name('ajuan.update');
-Route::delete('/ajuan/{ajuan}', [SuratDivController::class,'destroy'])->name('ajuan.destroy');
-Route::delete('/request-surat/{request}', [SuratDivController::class,'destroySurat'])->name('request-surat.destroy');
 
 
 
