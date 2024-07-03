@@ -80,6 +80,10 @@ Route::middleware(['auth'])->group(function () {
     //download di index.blade
     Route::get('/surat/download/{id}', [ArsipSuratController::class, 'download'])->name('surat.download');
 
+    //update status finished unfinished
+    Route::put('/request-status/{id}', [RequestController::class, 'update'])->name('request-status.update');
+
+
     Route::get('/DashboardBendahara', [DashboardController::class, 'dashboardbend'])->name('dashboardbend');
     Route::get('DanaMasuk/danamasuk', [BendaharaController::class, 'danamasuk'])->name('DanaMasuk');
     Route::put('/update-ajuan/{id}', [BendaharaController::class, 'update'])->name('update.ajuan');

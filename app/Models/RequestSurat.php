@@ -20,5 +20,7 @@ class RequestSurat extends Model
         'deskripsi_surat',
         'tipe_surat',
         'penerima_surat',
+        'status',
+        'upload_surat',
     ];
 }
