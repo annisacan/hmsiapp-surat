@@ -11,6 +11,7 @@ use Laravel\Fortify\Contracts\ResetsUserPasswords;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Support\Facades\Redirect;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -56,6 +57,9 @@ class FortifyServiceProvider extends ServiceProvider
             return view('auth.reset-password', ['request' => $request]);
         });
 
+        Fortify::verifyEmailView(function(){
+            return view('auth.verify-email');
+        });
         // Add other Fortify customizations here
     }
 }

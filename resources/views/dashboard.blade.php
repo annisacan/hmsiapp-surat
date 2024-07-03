@@ -1,8 +1,9 @@
 @extends('layout.master')
 
 @section('content')
-    @can('bendahara')
-        <div class="container-fluid">
+    <div class="container-fluid">
+        <h1 class="mb-4 text-center mt-5"> WELCOME TO SURAT MENYURAT HMSI</h1>
+        @can('bendahara')
             @php
                 $totalPengeluaran = DB::table('ajuan_danas')->sum('total_pengeluaran');
                 $formattedTotal = number_format($totalPengeluaran, 0, ',', '.');
@@ -24,21 +25,27 @@
             @endphp
 
             <div class="container-fluid">
-                <div class="cardBox">
-                    <div class="card">
-                        <div>
-                            <div class="numbers">Rp {{ $formattedTotal }}</div>
-                            <div class="cardName">Total Pengeluaran</div>
-                        </div>
-                        <div class="iconBx">
-                            <ion-icon name="eye-outline"></ion-icon>
+                <div class="row">
+                    <div class="col">
+                        <div class="cardBox">
+                            <div class="card">
+                                <div>
+                                    <div class="numbers">Rp {{ $formattedTotal }}</div>
+                                    <div class="cardName">Total Pengeluaran</div>
+                                </div>
+                                <div class="iconBx">
+                                    <ion-icon name="eye-outline"></ion-icon>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <!-- Tambahkan elemen untuk menampilkan grafik -->
-                        <canvas id="chartTotalPengeluaranPerBulan"></canvas>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <!-- Tambahkan elemen untuk menampilkan grafik -->
+                                <canvas id="chartTotalPengeluaranPerBulan"></canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -68,8 +75,8 @@
                     }
                 });
             </script>
-        </div>
-    @endcan
+        @endcan
+    </div>
 
     <!-- Page Heading -->
     {{-- <div class="d-sm-flex align-items-center justify-content-between ml-4">
@@ -77,7 +84,7 @@
         </div> --}}
 
     <!-- Content Row -->
-
+    {{-- 
     <div class="cardBox">
 
         <div class="card">
@@ -125,7 +132,7 @@
         </div>
 
 
-    </div>
+    </div> --}}
 @endsection
 {{-- <div class="row">
 
