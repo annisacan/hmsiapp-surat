@@ -38,7 +38,7 @@
                                 <td class="text-center">{{ $ajuan->created_at->format('Y-m-d') }}</td>
                                 <td class="text-center">
                                     @if($ajuan->upload_nota)
-                                        <form action="{{ asset(Storage::url('app/public/uploads/' . $ajuan->upload_nota)) }}" method="GET" target="_blank" style="display: inline;">
+                                        <form action="{{ asset('storage/uploads/' . $ajuan->upload_nota) }}" method="GET" target="_blank" style="display: inline;">
                                             <button type="submit" class="btn btn-info btn-sm">Detail</button>
                                         </form>
                                     @else
