@@ -18,6 +18,7 @@ class AjuanDana extends Model
         'deskripsi_dana',
         'upload_nota',
         'status',
+        'divisi',
         'original_filename',
         'status',
     ];

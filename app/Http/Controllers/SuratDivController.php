@@ -62,6 +62,7 @@ class SuratDivController extends Controller
             'total_pengeluaran' => 'required|numeric',
             'tanggal_nota' => 'required|date',
             'deskripsi_dana' => 'required',
+            'divisi' => 'required',
             'upload_nota' => 'file|mimes:jpeg,png,jpg,pdf|max:2048',
         ]);
 
@@ -76,13 +77,14 @@ class SuratDivController extends Controller
         }
 
         // Create new record with original filename
-        $ajuan = AjuanDana::create([
+        $request = AjuanDana::create([
             'nama_dana' => $request->nama_dana,
             'total_pengeluaran' => $request->total_pengeluaran,
             'tanggal_nota' => $request->tanggal_nota,
             'deskripsi_dana' => $request->deskripsi_dana,
             'upload_nota' => $uniqueFilename, // Store unique filename in database
             'status' => 'Menunggu',
+            'divisi' => $request->divisi,
             'original_filename' => $originalFilename, // Store original filename in database
         ]);
 
@@ -157,6 +159,7 @@ class SuratDivController extends Controller
         $ajuan->nama_dana = $request->input('nama_dana');
         $ajuan->total_pengeluaran = $request->input('total_pengeluaran');
         $ajuan->tanggal_nota = $request->input('tanggal_nota');
+        $ajuan->divisi = $request->input('divisi');
         $ajuan->deskripsi_dana = $request->input('deskripsi_dana');
 
         $ajuan->save();

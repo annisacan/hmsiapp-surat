@@ -85,6 +85,18 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="divisi">Divisi</label>
+                        <select class="form-control" id="divisi" name="divisi">
+                            <option>Eksternal</option>
+                            <option>Internal</option>
+                            <option>Medkraf</option>
+                            <option>PSDM</option>
+                            <option>Bisnis Kreatif</option>
+                            <option>PSI</option>
+                            <option>RTK</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="deskripsi-dana">Deskripsi Dana</label>
                         <textarea class="form-control no-resize" id="deskripsi-dana" name="deskripsi_dana" rows="5" required></textarea>
                     </div>
@@ -130,6 +142,18 @@
                             <label for="edit-tanggal-nota">Tanggal Nota</label>
                             <input type="date" class="form-control" id="edit-tanggal-nota{{ $ajuan->id }}" name="tanggal_nota" value="{{ $ajuan->tanggal_nota }}" required>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-divisi">Divisi</label>
+                        <select class="form-control" id="edit-divisi{{ $ajuan->id }}" name="divisi">
+                            <option {{ $ajuan->divisi == 'Eksternal' ? 'selected' : '' }}>Eksternal</option>
+                            <option {{ $ajuan->divisi == 'Internal' ? 'selected' : '' }}>Internal</option>
+                            <option {{ $ajuan->divisi == 'Medkraf' ? 'selected' : '' }}>Medkraf</option>
+                            <option {{ $ajuan->divisi == 'PSDM' ? 'selected' : '' }}>PSDM</option>
+                            <option {{ $ajuan->divisi == 'Bisnis Kreatif' ? 'selected' : '' }}>Bisnis Kreatif</option>
+                            <option {{ $ajuan->divisi == 'PSI' ? 'selected' : '' }}>PSI</option>
+                            <option {{ $ajuan->divisi == 'RTK' ? 'selected' : '' }}>RTK</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="edit-deskripsi-dana">Deskripsi Dana</label>
@@ -178,6 +202,18 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="detail-divisi">Divisi</label>
+                        <select class="form-control" id="detail-divisi{{ $ajuan->id }}" name="divisi" disabled>
+                            <option {{ $ajuan->divisi == 'Eksternal' ? 'selected' : '' }}>Eksternal</option>
+                            <option {{ $ajuan->divisi == 'Internal' ? 'selected' : '' }}>Internal</option>
+                            <option {{ $ajuan->divisi == 'Medkraf' ? 'selected' : '' }}>Medkraf</option>
+                            <option {{ $ajuan->divisi == 'PSDM' ? 'selected' : '' }}>PSDM</option>
+                            <option {{ $ajuan->divisi == 'Bisnis Kreatif' ? 'selected' : '' }}>Bisnis Kreatif</option>
+                            <option {{ $ajuan->divisi == 'PSI' ? 'selected' : '' }}>PSI</option>
+                            <option {{ $ajuan->divisi == 'RTK' ? 'selected' : '' }}>RTK</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="detail-deskripsi-dana">Deskripsi Dana</label>
                         <textarea class="form-control no-resize" id="detail-deskripsi-dana{{ $ajuan->id }}" rows="5" readonly>{{ $ajuan->deskripsi_dana }}</textarea>
                     </div>
@@ -203,7 +239,7 @@
                                 <label class="col-sm-3 col-form-label">Bukti Ganti Dana</label>
                                 <div class="col-sm-9">
                                     @if ($ajuan->updateBendahara && $ajuan->updateBendahara->bukti_ganti_dana != 'no_file_uploaded')
-                                        <a href="{{ asset(Storage::url('app/public/uploads/' . $ajuan->updateBendahara->bukti_ganti_dana)) }}" target="_blank">Lihat Bukti</a>
+                                        <a href="{{ asset('storage/uploads/' . $ajuan->updateBendahara->bukti_ganti_dana) }}" >Lihat Bukti</a>
                                     @else
                                         <span class="text-muted">File belum dikirim</span>
                                     @endif
