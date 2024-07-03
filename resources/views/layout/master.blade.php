@@ -77,7 +77,7 @@
                     <div class="submenu">
                         <a href="#" class="link submenu-title">Management Aplikasi</a>
                         <a href="{{ route('KelolaUsers') }}" class="link">Kelola User</a>
-                        <a href="{{ route('KelolaDivisi') }}" class="link">Divisi User</a>
+                        {{-- <a href="{{ route('KelolaDivisi') }}" class="link">Divisi User</a> --}}
                     </div>
                 </li>
             @endcan
@@ -150,7 +150,7 @@
                 <li>
                     <div class="title">
                         <a href="{{ route('SuratMasukKahim') }}" class="link">
-                            <i class='bx bx-file'></i> 
+                            <i class='bx bx-file'></i>
                             <span class="name">Surat Masuk</span>
                         </a>
                         <!-- <i class='bx bxs-chevron-down'></i> -->
@@ -224,11 +224,6 @@
     <script src="{{ asset('sidebar-01/js/main.js') }}"></script>
     <script src="{{ asset('sidebar-02/assets/js/main.js') }}"></script>
     {{-- 
-    <script src="{{ asset('public/sidebar-01/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('public/sidebar-01/js/popper.js') }}"></script>
-    <script src="{{ asset('public/sidebar-01/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('public/sidebar-01/js/main.js') }}"></script>
-    <script src="{{ asset('public/sidebar-02/assets/js/main.js') }}"></script>
     @stack('prepend-script')
     <script src="{{ url('/admin/js/jquery/jquery.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
