@@ -33,7 +33,7 @@ use BuatSuratController as GlobalBuatSuratController;
 */
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', [DashboardController::class, 'dashboardsekre'])->name('dashboardsekre');
+    Route::get('/', [DashboardController::class, 'dashboardsekre'])->name('dashboardsekre')->middleware('verified');
     Route::get('kirimSurat/index', [SuratController::class, 'index'])->name('KirimSurat');
     Route::get('KelolaDivisi/index', [DivisiController::class, 'index'])->name('KelolaDivisi');
     Route::get('KelolaDivisi/create', [DivisiController::class, 'create'])->name('createDivisi');
