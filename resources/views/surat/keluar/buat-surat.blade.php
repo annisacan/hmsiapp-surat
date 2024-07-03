@@ -12,8 +12,8 @@
                 <div class="col-12">
                     <ul class="nav nav-tabs" id="jenisSuratTabs" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link active" id="beritaAcara-tab" data-bs-toggle="tab" href="#beritaAcara" role="tab"
-                                aria-controls="beritaAcara" aria-selected="false">Berita Acara</a>
+                            <a class="nav-link active" id="suratPermohonan-tab" data-bs-toggle="tab" href="#suratPermohonan" role="tab"
+                                aria-controls="suratPermohonan" aria-selected="false">Surat Permohonan</a>
                         </li>
                         <li class="nav-item" role="presentation">
                             <a class="nav-link" id="undanganRapat-tab" data-bs-toggle="tab" href="#undanganRapat" role="tab"
@@ -25,13 +25,17 @@
                         </li>
                     </ul>
                     <div class="tab-content" id="jenisSuratTabsContent">
-                        <div class="tab-pane fade show active" id="beritaAcara" role="tabpanel" aria-labelledby="beritaAcara-tab">
-                            <!-- Isi untuk Jenis Surat Berita Acara -->
-                            @include('forms.form-berita-acara')
+                        <div class="tab-pane fade show active" id="suratPermohonan" role="tabpanel" aria-labelledby="suratPermohonan-tab">
+                            <!-- Isi untuk Jenis Surat Permohonan -->
+                            @include('forms.form-surat-permohonan')
                         </div>
                         <div class="tab-pane fade" id="undanganRapat" role="tabpanel" aria-labelledby="undanganRapat-tab">
-                            <!-- Isi untuk Jenis Surat Undangan Rapat -->
+                            <!-- Isi untuk Jenis Undangan Rapat -->
                             @include('forms.form-undangan-rapat')
+                        </div>
+                        <div class="tab-pane fade" id="suratPeminjaman" role="tabpanel" aria-labelledby="suratPeminjaman-tab">
+                            <!-- Isi untuk Jenis Surat Peminjaman -->
+                            @include('forms.form-surat-peminjaman')
                         </div>
                     </div>
                 </div>

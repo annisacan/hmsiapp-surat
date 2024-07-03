@@ -11,14 +11,16 @@ use App\Http\Controllers\RequestController;
 use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\RoleAssignmentController;
 use App\Http\Controllers\BuatSuratController;
-use App\Http\Controllers\BeritaAcaraController;
+use App\Http\Controllers\SuratPermohonanController;
 use App\Http\Controllers\UndanganRapatController;
 use App\Http\Controllers\SuratPeminjamanController;
+use App\Http\Controllers\ArsipSuratController;
 
 use Laravel\Fortify\Http\Controllers\NewPasswordController;
 use App\Http\Controllers\SuratDivController;
 use App\Http\Controllers\KahimController;
 use App\Http\Controllers\DashboardKahimController;
+use App\Models\SuratPermohonan;
 use BuatSuratController as GlobalBuatSuratController;
 
 /*
@@ -44,6 +46,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('requestSurat/index', [RequestController::class, 'requestsurat'])->name('RequestSurat');
     Route::get('requestSurat/create', [RequestController::class, 'create'])->name('requestCreate');
 
+    //Arsip Surat
+    Route::get('ArsipSurat/index', [ArsipSuratController::class, 'index'])->name('ArsipSuratSekre');
 
     Route::get('KelolaUser', [UserController::class, 'index'])->name('KelolaUsers');
     Route::post('KelolaUser/simpan', [UserController::class, 'store'])->name('simpanUser');
@@ -55,9 +59,10 @@ Route::middleware(['auth'])->group(function () {
     //Generate Surat
     Route::get('BuatSurat/index', [BuatSuratController::class, 'index'])->name('BuatSurat');
 
-    //Berita Acara
-    Route::post('berita-acara/store', [BeritaAcaraController::class, 'store'])->name('berita-acara.store');
-    Route::get('berita-acara/print-berita-acara/{id}', [BeritaAcaraController::class, 'print'])->name('print.berita-acara');
+
+    //Surat Permohonan
+    Route::post('surat-permohonan/store', [SuratPermohonanController::class, 'store'])->name('surat-permohonan.store');
+    Route::get('surat-permohonan/cetak/{id}', [SuratPermohonanController::class, 'cetak'])->name('surat-permohonan.cetak');
 
     //Undangan Rapat
     Route::post('undangan-rapat/store', [UndanganRapatController::class, 'store'])->name('undangan-rapat.store');
@@ -72,7 +77,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('DashboardKahim/index', [DashboardKahimController::class, 'index'])->name('DashboardKahim');
     Route::get('SuratMasukKahim/index', [KahimController::class, 'index'])->name('SuratMasukKahim');
 
-
+    //download di index.blade
+    Route::get('/surat/download/{id}', [ArsipSuratController::class, 'download'])->name('surat.download');
 
     Route::get('/DashboardBendahara', [DashboardController::class, 'dashboardbend'])->name('dashboardbend');
     Route::get('DanaMasuk/danamasuk', [BendaharaController::class, 'danamasuk'])->name('DanaMasuk');
