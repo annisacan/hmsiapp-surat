@@ -20,7 +20,6 @@ class AjuanDana extends Model
         'status',
         'divisi',
         'original_filename',
-        'status',
     ];
 
     public function getTotalPengeluaranAttribute($value)

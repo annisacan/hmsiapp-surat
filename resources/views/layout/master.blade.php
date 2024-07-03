@@ -63,7 +63,7 @@
                         <a href="{{ route('RequestSurat') }}" class="link">Request Surat</a>
                         <a href="{{ route('SuratMasukSekre') }}" class="link">Surat Masuk</a>
                         <a href="{{ route('BuatSurat') }}" class="link">BuatSurat</a>
-                        <a href="#" class="link">Arsip Surat</a>
+                        <a href="{{ route('ArsipSuratSekre') }}" class="link">Arsip Surat</a>
                     </div>
                 </li>
                 <li class="dropdown">

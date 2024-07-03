@@ -40,7 +40,7 @@
                                     <span class="priority-badge {{ strtolower(str_replace(' ', '-', $request->priority)) }}">{{ $request->priority }}</span>
                                 </td>
                                 <td class="text-center">{{ \Carbon\Carbon::parse($request->tanggal_request)->format('Y-m-d H:i') }}</td>
-                                <td class="text-center">{{ $request->status ?? 'Finished' }}</td> {{--diambil dari sekre--}}
+                                <td class="text-center">{{ $request->status ?? 'Unfinished' }}</td> 
                                 <td class="text-center">
                                     <a href="#" class="btn btn-info btn-sm btn-detail" data-toggle="modal" data-target="#detailModal{{ $request->id }}">Detail</a>
                                     <a href="#" class="btn btn-primary btn-sm btn-edit" data-toggle="modal" data-target="#editModal{{ $request->id }}">Edit</a>
@@ -233,10 +233,8 @@
                                 Surat Selesai
                             </div>
                             <div class="card-body d-flex align-items-center">
-                                <span>Ini File</span>
-                                <a href="#" download class="btn btn-sm btn-outline-secondary ml-2">
-                                    <i class="fas fa-download"></i>
-                                </a>
+                                <iframe src="{{ asset('storage/uploads/' . $request->upload_surat) }}" width="350" height="400" frameborder="0"></iframe>
+                                
                             </div>
                         </div>
                     </div>

@@ -50,6 +50,8 @@ class SuratDivController extends Controller
             'deskripsi_surat' => $request->deskripsi_surat,
             'tipe_surat' => $request->tipe_surat,
             'penerima_surat' => $request->penerima_surat,
+            'status' => $request->status,
+            'upload_surat' => 'Belum Ada Surat yang Diupload',
         ]);
 
         return redirect()->back()->with('success', 'Request surat berhasil ditambahkan.');

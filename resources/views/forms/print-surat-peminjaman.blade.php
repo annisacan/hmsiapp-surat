@@ -10,13 +10,13 @@
 
 <body>
     <section id="main">
-        <div class="container">
+        <div class="m-5">
             <div class="row">
                 <div class="col">
                     <div class="text-center">
                         <table>
                             <tr class="block">
-                                <td style="padding-right: 25px;"><img src="{{ asset('images/logo.png') }}" alt="Logo" width="90px" height="90px"></td>
+                                <td style="padding-right: 25px;"><img src="/unand.png" alt="Logo" width="90px" height="90px"></td>
                                 <td class="judul">
                                     <h5 >HIMPUNAN MAHASISWA SISTEM INFORMASI</h5>
                                     <h5 >DEPARTEMEN SISTEM INFORMASI</h5>
@@ -25,8 +25,8 @@
                                     <p style="margin-top: 1px; margin-bottom: 1px;">Kampus Universitas Andalas, Limau Manis Padang - 27163</p>
                                     <p style="margin-top: 1px; margin-bottom: 1px;">Web : wwww.hmsiunand.com email: officialsi.unand@gmail.com</p>
                                 </td>
-                                <td class="banker" >
-                                    <h6 style="margin-bottom: 1px;">Logo HMSI</h6>
+                                <td class="block" >
+                                    <td style="padding-right: 25px;"><img src="/hmsi.png" alt="Logo" width="90px" height="90px"></td>
                                     <p style="margin-top: 1px; margin-bottom: 1px;">&nbsp;&nbsp;</p>
                                     <p style="margin-top: 1px; margin-bottom: 1px;">&nbsp;&nbsp;</p>
                                     <p style="margin-top: 1px; margin-bottom: 1px;">&nbsp;&nbsp;</p>
@@ -39,26 +39,26 @@
                         <table>
                             <tr class="no">
                                 <td>
-                                    <p style="margin-top: 1px; margin-bottom: 1px;">No<span style="margin-left:35px;">: </span>{{$undanganRapat->nomor_urut . '/' . $undanganRapat->tujuan_surat . '/SPmj' . '/' . $undanganRapat->nama_proker . '/' . '/HMSI FTI-UNAND' . $undanganRapat->bulan_surat . '/' . \Carbon\Carbon::parse($undanganRapat->letter_date)->translatedFormat('Y')}}</p>
-                                    <p style="margin-top: 1px; margin-bottom: 1px;">Lampiran<span style="margin-left:3px;">: </span>{{$undanganRapat->lampiran}}</p>
-                                    <p style="margin-top: 1px; margin-bottom: 1px; ">Hal<span style="margin-left:32.5px;">: </span><span style="font-weight: bold; text-decoration: underline;">{{$undanganRapat->hal}}</span><p>
+                                    <p style="width:300px;margin-top: 1px; margin-bottom: 1px;">Nomor<span style="margin-left:35px;">: </span>{{$suratPeminjaman->nomor_urut . '/' . $suratPeminjaman->tujuan_surat . '/SPmj' . '/' . $suratPeminjaman->nama_proker . '/' . '/HMSI FTI-UNAND' . $suratPeminjaman->bulan_surat . '/' . \Carbon\Carbon::parse($suratPeminjaman->letter_date)->translatedFormat('Y')}}</p>
+                                    <p style="margin-top: 1px; margin-bottom: 1px;">Lampiran<span style="margin-left:3px;">: </span>{{$suratPeminjaman->lampiran}}</p>
+                                    <p style="margin-top: 1px; margin-bottom: 1px; ">Hal<span style="margin-left:32.5px;">: </span><span style="font-weight: bold; text-decoration: underline;">{{$suratPeminjaman->hal}}</span><p>
                                 </td>
                                 <td>
-                                    <p style="margin-left:190px; margin-bottom: 55px;">Padang, {{\Carbon\Carbon::parse($undanganRapat->tanggal_surat)->translatedFormat('d F Y')}}</p>
+                                    <p style="width:300px;margin-right:50px; margin-bottom: 55px;display:flex;justify-content:end;">Padang, {{\Carbon\Carbon::parse($suratPeminjaman->tanggal_surat)->translatedFormat('d F Y')}}</p>
                                 </td>
                             </tr>
                         </table>
                     </div>
-                    <p style="margin-top: 1px; margin-bottom: 1px; font-weight: bold; ">Yth, {{$undanganRapat->penerima_undangan}}</p>
-                    <p style="margin-top: 1px; margin-bottom: 1px; font-weight: bold; ">{{$undanganRapat->alamat_penerima}}</p>
+                    <p style="margin-top: 1px; margin-bottom: 1px; font-weight: bold; ">Yth, {{$suratPeminjaman->penerima_undangan}}</p>
+                    <p style="margin-top: 1px; margin-bottom: 1px; font-weight: bold; ">{{$suratPeminjaman->alamat_penerima}}</p>
                     <p style="margin-top: 1px; margin-bottom: 1px;">di Tempat</p>
                     <br>
                     <p>Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
-                    <p>Doa dan harapan kami Bapak/Ibu selalu dalam keadaan sehat dan sukses dalam menjalankan aktivitas sehari-hari. Sehubungan akan dilaksanakannya {{$undanganRapat->isi_surat}}, yang akan dilaksanakan pada :</p>
+                    <p>Doa dan harapan kami Bapak/Ibu selalu dalam keadaan sehat dan sukses dalam menjalankan aktivitas sehari-hari. Sehubungan akan dilaksanakannya {{$suratPeminjaman->isi_surat}}, yang akan dilaksanakan pada :</p>
                     <br>
-                    <p style="margin-top: 1px; margin-bottom: 1px;">Hari/Tanggal<span style="margin-left:3px;">: </span>{{\Carbon\Carbon::parse($undanganRapat->tanggal_acara)->translatedFormat('l/ d F Y')}}</p>
-                    <p style="margin-top: 1px; margin-bottom: 1px;">Waktu<span style="margin-left:35px;">: </span>{{$undanganRapat->waktu}}</p>
-                    <p style="margin-top: 1px; margin-bottom: 1px;">Tempat<span style="margin-left:30px;">: </span>{{$undanganRapat->tempat}}</p>
+                    <p style="margin-top: 1px; margin-bottom: 1px;">Hari/Tanggal<span style="margin-left:3px;">: </span>{{\Carbon\Carbon::parse($suratPeminjaman->tanggal_acara)->translatedFormat('l/ d F Y')}}</p>
+                    <p style="margin-top: 1px; margin-bottom: 1px;">Waktu<span style="margin-left:35px;">: </span>{{$suratPeminjaman->waktu}}</p>
+                    <p style="margin-top: 1px; margin-bottom: 1px;">Tempat<span style="margin-left:30px;">: </span>{{$suratPeminjaman->tempat}}</p>
                     <p style="margin-top: 15px;">Bersama ini, kami mohon bantuan Bapak/Ibu untuk dapat meminjam ruangan yang diterakan. Demikianlah surat permohonan ini kami buat, atas perhatian dan kesedian Bapak/Ibu kami ucapkan terimakasih.</p>
                     <p>Wassalamualaikum Warahmatullahi Wabarakatuh</p>
                     <p style="margin-top: 1px; margin-bottom: 1px;">Hormat kami,</p>
@@ -67,8 +67,8 @@
                     <br>
                     <br>
                     <br>
-                    <p style="margin-top: 1px; margin-bottom: 1px; font-weight: bold; text-decoration: underline;">{{$undanganRapat->nama_pengirim}}</p>
-                    <p style="margin-top: 1px; margin-bottom: 1px;"> 'NIM' . {{$undanganRapat->nim_pengirim}}</p>
+                    <p style="margin-top: 1px; margin-bottom: 1px; font-weight: bold; text-decoration: underline;">{{$suratPeminjaman->nama_pengirim}}</p>
+                    <p style="margin-top: 1px; margin-bottom: 1px;"> 'NIM' . {{$suratPeminjaman->nim_pengirim}}</p>
                     <br>
                     <br>
                 </div>

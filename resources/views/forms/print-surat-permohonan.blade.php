@@ -39,36 +39,37 @@
                         <table>
                             <tr class="no">
                                 <td>
-                                    <p style="width:300px;margin-top: 1px; margin-bottom: 1px;">Nomor<span style="margin-left:35px;">: </span>{{$undanganRapat->nomor_urut . '/' . $undanganRapat->tujuan_surat . '/SU' . '/' . $undanganRapat->nama_proker . '/' . '/HMSI FTI-UNAND' . $undanganRapat->bulan_surat . '/' . \Carbon\Carbon::parse($undanganRapat->letter_date)->translatedFormat('Y')}}</p>
-                                    <p style="margin-top: 1px; margin-bottom: 1px;">Lampiran<span style="margin-left:3px;">: </span>{{$undanganRapat->lampiran}}</p>
-                                    <p style="margin-top: 1px; margin-bottom: 1px; ">Hal<span style="margin-left:32.5px;">: </span><span style="font-weight: bold; text-decoration: underline;">{{$undanganRapat->hal}}</span><p>
+                                    <p style="width:300px;margin-top: 1px; margin-bottom: 1px;">Nomor<span style="margin-left:35px;">: </span>{{$suratPermohonan->nomor_urut . '/' . $suratPermohonan->tujuan_surat . '/SPmh' . '/' . $suratPermohonan->nama_proker . '/' . '/HMSI FTI-UNAND' . $suratPermohonan->bulan_surat . '/' . \Carbon\Carbon::parse($suratPermohonan->letter_date)->translatedFormat('Y')}}</p>
+                                    <p style="margin-top: 1px; margin-bottom: 1px;">Lampiran<span style="margin-left:3px;">: </span>{{$suratPermohonan->lampiran}}</p>
+                                    <p style="margin-top: 1px; margin-bottom: 1px; ">Hal<span style="margin-left:32.5px;">: </span><span style="font-weight: bold; text-decoration: underline;">{{$suratPermohonan->hal}}</span><p>
                                 </td>
                                 <td>
-                                    <p style="width:300px;margin-right:50px; margin-bottom: 55px;display:flex;justify-content:end;">Padang, {{\Carbon\Carbon::parse($undanganRapat->tanggal_surat)->translatedFormat('d F Y')}}</p>
+                                    <p style="width:300px;margin-right:50px; margin-bottom: 55px;display:flex;justify-content:end;">Padang, {{\Carbon\Carbon::parse($suratPermohonan->tanggal_surat)->translatedFormat('d F Y')}}</p>
                                 </td>
                             </tr>
                         </table>
                     </div>
-                    <p style="margin-top: 1px; margin-bottom: 1px; font-weight: bold; ">Yth, {{$undanganRapat->penerima_undangan}}</p>
-                    <p style="margin-top: 1px; margin-bottom: 1px; font-weight: bold; ">{{$undanganRapat->alamat_penerima}}</p>
+                    <p style="margin-top: 1px; margin-bottom: 1px; font-weight: bold; ">Yth, {{$suratPermohonan->penerima_undangan}}</p>
+                    <p style="margin-top: 1px; margin-bottom: 1px; font-weight: bold; ">{{$suratPermohonan->alamat_penerima}}</p>
                     <p style="margin-top: 1px; margin-bottom: 1px;">di Tempat</p>
                     <br>
                     <p>Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
-                    <p>Puji syukur ke hadirat Allah Subhanahu wa ta'ala, yang telah melimpahkan rahmat dan hidayah-Nya, shalawat serta salam kita curahkan kepada Nabi Muhammad Shallallahu 'alaihi Wa sallam. Doa dan harapan kami Bapak/Ibu selalu dalam keadaan sehat dan sukses dalam menjalani aktivitas sehari hari.</p>
+                    <p>Puji syukur kita ucapkan atas kehadirat ALLAH SWT yang telah melimpahkan rahmat dan karunia-Nya kepada kita semua. Shalawat beriringan salam kita kirimkan kepada Nabi Muhammad SAW sebagai contoh tauladan kita. Doa dan harapan kami semoga Bapak/Ibu senantiasa berada dalam keadaan sehat walafiat. Aamiin.</p>
+                    <p>Dengan ini kami menyampaikan bahwa akan {{$suratPermohonan->isi_surat}}, yang akan dilaksanakan pada :</p>
                     <br>
-                    <p>Sehubung akan dilaksanakannya kegiataan {{$undanganRapat->isi_surat}}, maka kami mengundang Bapak/Ibu untuk dapat menghadiri acara tersebut yang akan dilaksanakan pada :</p>
-                    <p style="margin-top: 1px; margin-bottom: 1px;">Hari/Tanggal<span style="margin-left:3px;">: </span>{{\Carbon\Carbon::parse($undanganRapat->tanggal_acara)->translatedFormat('l/ d F Y')}}</p>
-                    <p style="margin-top: 1px; margin-bottom: 1px;">Waktu<span style="margin-left:35px;">: </span>{{$undanganRapat->waktu}}</p>
-                    <p style="margin-top: 1px; margin-bottom: 1px;">Tempat<span style="margin-left:30px;">: </span>{{$undanganRapat->tempat}}</p>
-                    <p style="margin-top: 15px;">Demikianlah surat ini kami buat, atas perhatian dan kesediaan Bapak/Ibu kami ucapkan terimakasih.</p>
+                    <p style="margin-top: 1px; margin-bottom: 1px;">Hari/Tanggal<span style="margin-left:3px;">: </span>{{\Carbon\Carbon::parse($suratPermohonan->tanggal_acara)->translatedFormat('l/ d F Y')}}</p>
+                    <p style="margin-top: 1px; margin-bottom: 1px;">Waktu<span style="margin-left:35px;">: </span>{{$suratPermohonan->waktu}}</p>
+                    <p style="margin-top: 1px; margin-bottom: 1px;">Tempat<span style="margin-left:30px;">: </span>{{$suratPermohonan->tempat}}</p>
+                    <p style="margin-top: 15px;">Demikianlah surat permohonan ini kami buat, atas perhatian dan kesedian Bapak/Ibu kami ucapkan terimakasih.</p>
+                    <p>Wassalamualaikum Warahmatullahi Wabarakatuh</p>
                     <p style="margin-top: 1px; margin-bottom: 1px;">Hormat kami,</p>
                     <p style="margin-top: 1px; margin-bottom: 1px;">Ketua Umum HMSI</p>
                     <br>
                     <br>
                     <br>
                     <br>
-                    <p style="margin-top: 1px; margin-bottom: 1px; font-weight: bold; text-decoration: underline;">{{$undanganRapat->nama_pengirim}}</p>
-                    <p style="margin-top: 1px; margin-bottom: 1px;"> 'NIM' . {{$undanganRapat->nim_pengirim}}</p>
+                    <p style="margin-top: 1px; margin-bottom: 1px; font-weight: bold; text-decoration: underline;">{{$suratPermohonan->nama_pengirim}}</p>
+                    <p style="margin-top: 1px; margin-bottom: 1px;"> 'NIM' . {{$suratPermohonan->nim_pengirim}}</p>
                     <br>
                     <br>
                 </div>
