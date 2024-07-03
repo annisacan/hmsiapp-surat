@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\AjuanDana;
 use App\Models\updateBendahara;
 use Illuminate\Http\Request;
@@ -25,9 +26,9 @@ class BendaharaController extends Controller
     public function update(Request $request, $id)
     {
         // Validate form inputs
-        $validatedData = $request->validate([
+        $ajuan = $request->validate([
             'status' => 'required|in:Menunggu,Diterima,Ditolak',
-            'bukti_ganti_dana' => 'file|max:2048', // Maximum file size 2MB
+            'bukti_ganti_dana' => 'nullable|file|max:2048', // Maximum file size 2MB
             'komentar' => 'nullable|string|max:255',
         ]);
 
@@ -53,7 +54,7 @@ class BendaharaController extends Controller
             // Store the file and get the filename
             $file = $request->file('bukti_ganti_dana');
             $fileName = time() . '_' . $file->getClientOriginalName();
-            $file->storeAs('public/uploads', $fileName);
+            $file->storeAs('uploads', $fileName, 'public');
             $updateBendahara->bukti_ganti_dana = $fileName;
         }
 
@@ -69,5 +70,4 @@ class BendaharaController extends Controller
 
         return redirect()->back()->with('success', 'Data ajuan berhasil diupdate');
     }
-
 }
